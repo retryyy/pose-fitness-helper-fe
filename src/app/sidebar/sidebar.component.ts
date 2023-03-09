@@ -22,8 +22,8 @@ export class SidebarComponent {
       navigate: '/upload',
     },
     {
-      title: 'Log in',
-      navigate: '/login',
+      title: 'Analyze data',
+      navigate: '/data',
     },
   ];
 

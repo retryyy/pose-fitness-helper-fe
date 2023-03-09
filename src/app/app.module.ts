@@ -9,9 +9,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './content/home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { UploadComponent } from './content/upload/upload.component';
 
 @NgModule({
-  declarations: [AppComponent, SidebarComponent, LoginComponent, HomeComponent],
+  declarations: [AppComponent, SidebarComponent, LoginComponent, HomeComponent, HeaderComponent, UploadComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
