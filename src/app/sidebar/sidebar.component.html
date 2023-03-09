@@ -1,0 +1,7 @@
+<div
+  *ngFor="let elem of sidebar"
+  class="sidebar-elem"
+  (click)="navigate(elem.navigate)"
+>
+  {{ elem.title }}
+</div>
