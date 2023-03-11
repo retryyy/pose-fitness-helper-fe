@@ -4,15 +4,18 @@ import { LoginGuard } from './auth/login.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './content/home/home.component';
 import { UploadComponent } from './content/upload/upload.component';
+import { PageComponent } from './page/page.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
   {
     path: '',
+    component: PageComponent,
     canActivate: [LoginGuard],
     children: [
-      { path: 'home', component: HomeComponent },
+      { path: '', component: HomeComponent },
       { path: 'upload', component: UploadComponent },
+      { path: '*', component: HomeComponent },
     ],
   },
 ];

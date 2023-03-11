@@ -15,7 +15,7 @@ export class SidebarComponent {
   protected sidebar: SideBarElem[] = [
     {
       title: 'Home',
-      navigate: '/home',
+      navigate: '/',
     },
     {
       title: 'Upload data',
@@ -23,7 +23,7 @@ export class SidebarComponent {
     },
     {
       title: 'Analyze data',
-      navigate: '/data',
+      navigate: '/upload',
     },
   ];
 

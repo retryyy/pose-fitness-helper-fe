@@ -1,0 +1,25 @@
+.app-login-form {
+  width: 500px;
+  height: 400px;
+  background-color: rebeccapurple;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 30px;
+}
+
+.app-login-input {
+  width: 90%;
+}
+
+.app-form-container {
+  width: 100%;
+  height: 100%;
+  background-color: chocolate;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
