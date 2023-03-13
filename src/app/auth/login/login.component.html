@@ -9,9 +9,10 @@
     <mat-form-field class="app-login-input">
       <mat-label>Password</mat-label>
       <input matInput formControlName="password" />
-      <mat-error>Password is reauired</mat-error>
+      <mat-error>Password is required</mat-error>
     </mat-form-field>
 
     <button type="submit" class="button" (click)="login()">Sign in</button>
   </form>
+  <a routerLink="/register">Sign up</a>
 </div>

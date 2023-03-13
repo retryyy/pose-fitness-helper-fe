@@ -43,6 +43,14 @@ export class UserService {
       });
   }
 
+  register(name: string, password: string): void {
+    this.http
+      .post<HttpResponse>(`${environment.server}/register`, { name, password })
+      .subscribe(() => {
+        this.router.navigateByUrl('/login');
+      });
+  }
+
   private getToken(): string | null {
     return localStorage.getItem('token');
   }

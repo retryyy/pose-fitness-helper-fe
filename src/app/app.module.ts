@@ -16,6 +16,7 @@ import { HomeComponent } from './page/content/home/home.component';
 import { HeaderComponent } from './page/header/header.component';
 import { UploadComponent } from './page/content/upload/upload.component';
 import { PageComponent } from './page/page.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PageComponent } from './page/page.component';
     HeaderComponent,
     UploadComponent,
     PageComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
