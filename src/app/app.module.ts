@@ -10,11 +10,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { SidebarComponent } from './page/sidebar/sidebar.component';
 import { LoginComponent } from './auth/login/login.component';
-import { HomeComponent } from './content/home/home.component';
-import { HeaderComponent } from './header/header.component';
-import { UploadComponent } from './content/upload/upload.component';
+import { HomeComponent } from './page/content/home/home.component';
+import { HeaderComponent } from './page/header/header.component';
+import { UploadComponent } from './page/content/upload/upload.component';
 import { PageComponent } from './page/page.component';
 
 @NgModule({
