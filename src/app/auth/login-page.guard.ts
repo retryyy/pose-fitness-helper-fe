@@ -5,15 +5,15 @@ import { UserService } from './user.service';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginGuard implements CanActivate {
+export class LoginPageGuard implements CanActivate {
   constructor(private userService: UserService, private router: Router) {}
 
   canActivate(): boolean {
     const loggedIn = this.userService.isLoggedIn();
 
-    if (!loggedIn) {
-      this.router.navigateByUrl('/login');
+    if (loggedIn) {
+      this.router.navigateByUrl('/');
     }
-    return loggedIn;
+    return !loggedIn;
   }
 }

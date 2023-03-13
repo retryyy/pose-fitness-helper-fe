@@ -8,11 +8,11 @@ import { HttpResponse } from '../interface/response';
   providedIn: 'root',
 })
 export class UserService {
-  token?: string;
+  token: string | null;
   user?: string;
 
   constructor(private http: HttpClient, private router: Router) {
-    this.token = localStorage.getItem('token') ?? undefined;
+    this.token = this.getToken();
     this.setUser();
   }
 
@@ -29,11 +29,7 @@ export class UserService {
   }
 
   isLoggedIn(): boolean {
-    return this.user !== null;
-  }
-
-  getInitials(): string {
-    return 'AE';
+    return this.token !== null;
   }
 
   login(name: string, password: string): void {
@@ -45,5 +41,13 @@ export class UserService {
         this.setUser();
         this.router.navigateByUrl('/');
       });
+  }
+
+  private getToken(): string | null {
+    return localStorage.getItem('token');
+  }
+
+  getInitials(): string {
+    return 'AE';
   }
 }

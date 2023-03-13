@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginPageGuard } from './auth/login-page.guard';
 import { LoginGuard } from './auth/login.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './content/home/home.component';
@@ -7,7 +8,7 @@ import { UploadComponent } from './content/upload/upload.component';
 import { PageComponent } from './page/page.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+  { path: 'login', component: LoginComponent, canActivate: [LoginPageGuard] },
   {
     path: '',
     component: PageComponent,
