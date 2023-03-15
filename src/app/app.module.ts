@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -17,6 +17,8 @@ import { HeaderComponent } from './page/header/header.component';
 import { UploadComponent } from './page/content/upload/upload.component';
 import { PageComponent } from './page/page.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { TokenInterceptor } from './auth/token.interceptor';
+import { AnalyzeComponent } from './page/content/analyze/analyze.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { RegisterComponent } from './auth/register/register.component';
     UploadComponent,
     PageComponent,
     RegisterComponent,
+    AnalyzeComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,9 @@ import { RegisterComponent } from './auth/register/register.component';
     MatSidenavModule,
     MatInputModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

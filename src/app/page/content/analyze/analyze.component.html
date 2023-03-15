@@ -1,0 +1,9 @@
+<div *ngFor="let doc of docs">
+  <video
+    src="data:video/mp4;base64,{{ doc.file }}"
+    height="200"
+    controls
+    playsinline
+    muted
+  ></video>
+</div>

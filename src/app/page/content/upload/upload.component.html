@@ -1,1 +1,12 @@
-<p>upload works!</p>
+<video
+  [src]="url"
+  *ngIf="url"
+  height="200"
+  controls
+  autoplay
+  playsinline
+  muted
+></video>
+<input type="file" (change)="onSelectFile($event)" />
+
+<button (click)="uploadFile()"></button>

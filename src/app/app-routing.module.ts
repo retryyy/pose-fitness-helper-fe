@@ -4,6 +4,7 @@ import { LoginPageGuard } from './auth/login-page.guard';
 import { LoginGuard } from './auth/login.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { AnalyzeComponent } from './page/content/analyze/analyze.component';
 import { HomeComponent } from './page/content/home/home.component';
 import { UploadComponent } from './page/content/upload/upload.component';
 import { PageComponent } from './page/page.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
     children: [
       { path: '', component: HomeComponent },
       { path: 'upload', component: UploadComponent },
+      { path: 'analyze', component: AnalyzeComponent },
       { path: '*', component: HomeComponent },
     ],
   },

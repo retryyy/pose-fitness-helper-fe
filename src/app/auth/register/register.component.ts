@@ -22,7 +22,6 @@ export class RegisterComponent {
   }
 
   register(): void {
-    console.log('heheh');
     if (this.registerForm.valid) {
       this.userService.register(
         this.registerForm.get('name')?.value,

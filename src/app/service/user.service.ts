@@ -51,7 +51,7 @@ export class UserService {
       });
   }
 
-  private getToken(): string | null {
+  getToken(): string | null {
     return localStorage.getItem('token');
   }
 

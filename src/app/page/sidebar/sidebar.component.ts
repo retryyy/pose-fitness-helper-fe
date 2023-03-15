@@ -23,7 +23,7 @@ export class SidebarComponent {
     },
     {
       title: 'Analyze data',
-      navigate: '/upload',
+      navigate: '/analyze',
     },
   ];
 

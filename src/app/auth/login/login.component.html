@@ -12,7 +12,14 @@
       <mat-error>Password is required</mat-error>
     </mat-form-field>
 
-    <button type="submit" class="button" (click)="login()">Sign in</button>
+    <button
+      type="submit"
+      class="button"
+      (click)="login()"
+      [disabled]="!loginForm.valid"
+    >
+      Sign in
+    </button>
   </form>
   <a routerLink="/register">Sign up</a>
 </div>
