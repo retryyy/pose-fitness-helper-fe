@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { FileService } from 'src/app/service/file.service';
 
 @Component({
@@ -9,15 +10,16 @@ import { FileService } from 'src/app/service/file.service';
 export class UploadComponent {
   url?: string;
   file?: File;
+  duration?: number;
 
   constructor(private fileService: FileService) {}
 
-  onSelectFile(event: any) {
-    const f: File = event.target.files && event.target.files[0];
-    this.file = f;
-    if (f) {
+  onSelect(event: NgxDropzoneChangeEvent) {
+    this.file = event.addedFiles[0];
+
+    if (this.file) {
       var reader = new FileReader();
-      reader.readAsDataURL(f);
+      reader.readAsDataURL(this.file);
       reader.onload = (event) => {
         this.url = (<FileReader>event.target).result as string;
       };
@@ -26,5 +28,14 @@ export class UploadComponent {
 
   uploadFile() {
     this.fileService.uploadFile(this.file!).subscribe();
+  }
+
+  setDuration(e: any) {
+    console.log(e.target);
+    this.duration = Math.round(e?.target?.duration);
+  }
+
+  formatLabel(value: number): string {
+    return `${value}`;
   }
 }

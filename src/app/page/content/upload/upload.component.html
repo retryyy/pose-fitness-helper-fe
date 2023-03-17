@@ -1,12 +1,40 @@
-<video
-  [src]="url"
-  *ngIf="url"
-  height="200"
-  controls
-  autoplay
-  playsinline
-  muted
-></video>
-<input type="file" (change)="onSelectFile($event)" />
+<div class="app-upload-container">
+  <div class="app-upload-form">
+    <div class="app-upload-video-frame">
+      <div
+        class="app-upload-dropzone"
+        ngx-dropzone
+        *ngIf="!file"
+        (change)="onSelect($event)"
+        [multiple]="false"
+        accept="video/*"
+      >
+        Drop or choose your video there!
+      </div>
 
-<button (click)="uploadFile()"></button>
+      <video
+        [src]="url"
+        *ngIf="file"
+        (loadedmetadata)="setDuration($event)"
+        controls
+        playsinline
+        muted
+        class="app-upload-video"
+      ></video>
+    </div>
+
+    <button (click)="uploadFile()"></button>
+
+    <mat-slider
+      *ngIf="file"
+      min="0"
+      [max]="duration"
+      step="1"
+      showTickMarks
+      discrete
+    >
+      <input value="0" matSliderStartThumb />
+      <input [value]="duration" matSliderEndThumb />
+    </mat-slider>
+  </div>
+</div>

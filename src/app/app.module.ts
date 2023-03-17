@@ -9,6 +9,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSliderModule } from '@angular/material/slider';
+import { NgxDropzoneModule } from 'ngx-dropzone';
 
 import { SidebarComponent } from './page/sidebar/sidebar.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -41,6 +43,9 @@ import { AnalyzeComponent } from './page/content/analyze/analyze.component';
 
     MatSidenavModule,
     MatInputModule,
+    MatSliderModule,
+
+    NgxDropzoneModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
