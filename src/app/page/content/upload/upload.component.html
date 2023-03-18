@@ -1,40 +1,109 @@
 <div class="app-upload-container">
   <div class="app-upload-form">
-    <div class="app-upload-video-frame">
-      <div
-        class="app-upload-dropzone"
-        ngx-dropzone
-        *ngIf="!file"
-        (change)="onSelect($event)"
-        [multiple]="false"
-        accept="video/*"
-      >
-        Drop or choose your video there!
-      </div>
+    <mat-stepper #stepper animationDuration="0">
+      <mat-step>
+        <div class="app-upload-stepper-container">
+          <ng-template matStepLabel>Upload & trim video</ng-template>
 
-      <video
-        [src]="url"
-        *ngIf="file"
-        (loadedmetadata)="setDuration($event)"
-        controls
-        playsinline
-        muted
-        class="app-upload-video"
-      ></video>
-    </div>
+          <ng-container *ngIf="loading">
+            <div class="app-upload-spinner-container">
+              <mat-spinner class="app-upload-spinner"></mat-spinner>
+            </div>
+          </ng-container>
 
-    <button (click)="trimFile()"></button>
+          <div class="app-upload-video-frame" [hidden]="loading">
+            <div
+              class="app-upload-dropzone"
+              ngx-dropzone
+              *ngIf="!file"
+              (change)="onSelect($event)"
+              [multiple]="false"
+              accept="video/*"
+            >
+              Drop or choose your video here!
+            </div>
 
-    <mat-slider
-      *ngIf="file"
-      min="0"
-      [max]="duration"
-      step="0.1"
-      showTickMarks
-      discrete
-    >
-      <input value="0" [(ngModel)]="start" matSliderStartThumb />
-      <input [value]="duration" [(ngModel)]="end" matSliderEndThumb />
-    </mat-slider>
+            <video
+              [src]="url"
+              *ngIf="file"
+              (durationchange)="setDuration($event)"
+              controls
+              playsinline
+              muted
+              class="app-upload-video"
+            ></video>
+          </div>
+
+          <ng-container *ngIf="!loading">
+            <div *ngIf="file" class="app-upload-slider-container">
+              <div>
+                Choose the start and the end of the movement in seconds! ({{
+                  start
+                }}
+                - {{ end }})
+              </div>
+
+              <mat-slider
+                min="0"
+                [max]="duration"
+                step="0.1"
+                showTickMarks
+                discrete
+              >
+                <input [(ngModel)]="start" matSliderStartThumb />
+                <input [(ngModel)]="end" matSliderEndThumb />
+              </mat-slider>
+
+              <mat-icon
+                fontIcon="delete"
+                class="app-upload-delete-file"
+                (click)="removeFile()"
+              ></mat-icon>
+            </div>
+          </ng-container>
+
+          <div class="app-upload-buttons">
+            <div></div>
+            <button
+              (click)="trimFile()"
+              mat-button
+              matStepperNext
+              [disabled]="!file"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </mat-step>
+
+      <mat-step>
+        <form>
+          <ng-template matStepLabel>Preview</ng-template>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step>
+        <form>
+          <ng-template matStepLabel>Choose exercise</ng-template>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        You are now done.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-stepper>
   </div>
 </div>

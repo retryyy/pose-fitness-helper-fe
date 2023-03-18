@@ -10,6 +10,10 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { NgxDropzoneModule } from 'ngx-dropzone';
 
 import { SidebarComponent } from './page/sidebar/sidebar.component';
@@ -45,6 +49,9 @@ import { AnalyzeComponent } from './page/content/analyze/analyze.component';
     MatSidenavModule,
     MatInputModule,
     MatSliderModule,
+    MatStepperModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
 
     NgxDropzoneModule,
   ],

@@ -9,31 +9,26 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-// .button {
-//   background-color: lightseagreen;
-//   color: white;
-//   font-size: 20px;
-//   border: 0;
-//   height: 40px;
-// }
-
 button {
-  border: 1px solid #0066cc;
+  border: none;
   background-color: #0099cc;
   color: #ffffff;
-  padding: 5px 10px;
+  padding: 5px 25px;
 }
 
 button:hover {
-  border: 1px solid #0099cc;
   background-color: #00aacc;
-  color: #ffffff;
-  padding: 5px 10px;
+  cursor: pointer;
 }
 
 button:disabled,
 button[disabled] {
-  border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
+  cursor: default;
+}
+
+mat-icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }

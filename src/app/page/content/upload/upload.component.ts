@@ -8,16 +8,21 @@ import { FileService } from 'src/app/service/file.service';
   styleUrls: ['./upload.component.scss'],
 })
 export class UploadComponent {
+  loading: boolean = false;
+
   url?: string;
   file?: File;
   duration?: number;
 
-  start?: number;
+  start: number = 0;
   end?: number;
+
+  durationText?: string;
 
   constructor(private fileService: FileService) {}
 
-  onSelect(event: NgxDropzoneChangeEvent) {
+  onSelect(event: NgxDropzoneChangeEvent): void {
+    this.loading = true;
     this.file = event.addedFiles[0];
 
     if (this.file) {
@@ -29,17 +34,24 @@ export class UploadComponent {
     }
   }
 
-  trimFile() {
+  trimFile(): void {
     this.fileService.trimFile(this.file!, this.start!, this.end!).subscribe();
   }
 
-  uploadFile() {
+  uploadFile(): void {
     this.fileService.uploadFile(this.file!).subscribe();
   }
 
-  setDuration(e: any) {
-    console.log(e.target);
-    this.duration = Math.round(e?.target?.duration);
+  removeFile(): void {
+    this.file = undefined;
+    this.url = undefined;
+  }
+
+  setDuration(e: any): void {
+    this.duration = Math.round(e.target.duration * 10) / 10;
+    this.end = this.duration;
+    this.start = 0;
+    this.loading = false;
   }
 
   formatLabel(value: number): string {
