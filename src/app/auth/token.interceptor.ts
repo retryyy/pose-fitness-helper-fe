@@ -6,17 +6,18 @@ import {
   HttpInterceptor,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { catchError, Observable, throwError } from 'rxjs';
+import { catchError, EMPTY, Observable, throwError } from 'rxjs';
 import { UserService } from '../service/user.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
+  ): Observable<HttpEvent<any>> {
     const token = this.userService.getToken();
 
     if (token) {
@@ -29,10 +30,12 @@ export class TokenInterceptor implements HttpInterceptor {
       catchError((err) => {
         if (err instanceof HttpErrorResponse) {
           if (err.status === 401) {
-            //jaj
+            this.userService.removeToken();
+            this.router.navigateByUrl('/login');
+            return EMPTY;
           }
         }
-        return throwError(err);
+        return throwError(() => err);
       })
     );
   }

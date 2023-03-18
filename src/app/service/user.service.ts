@@ -9,7 +9,7 @@ import { HttpResponse } from '../interface/response';
 })
 export class UserService {
   token: string | null;
-  user?: string;
+  user?: string | null;
 
   constructor(private http: HttpClient, private router: Router) {
     this.token = this.getToken();
@@ -24,7 +24,7 @@ export class UserService {
     try {
       this.user = JSON.parse(atob(this.token.split('.')[1]));
     } catch (e) {
-      this.user = undefined;
+      this.user = null;
     }
   }
 
@@ -53,6 +53,12 @@ export class UserService {
 
   getToken(): string | null {
     return localStorage.getItem('token');
+  }
+
+  removeToken(): void {
+    localStorage.removeItem('token');
+    this.token = null;
+    this.user = null;
   }
 
   getInitials(): string {

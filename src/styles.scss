@@ -11,6 +11,7 @@ body {
 
 button {
   border: none;
+  border-radius: 2px;
   background-color: #0099cc;
   color: #ffffff;
   padding: 5px 25px;
@@ -26,8 +27,4 @@ button[disabled] {
   background-color: #cccccc;
   color: #666666;
   cursor: default;
-}
-
-mat-icon:hover {
-  cursor: pointer;
 }
