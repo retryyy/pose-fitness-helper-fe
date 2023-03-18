@@ -27,20 +27,20 @@
               [src]="url"
               *ngIf="file"
               (durationchange)="setDuration($event)"
+              (timeupdate)="onTimeUpdate($event)"
               controls
               playsinline
               muted
               class="app-upload-video"
+              #video
             ></video>
           </div>
 
           <ng-container *ngIf="!loading">
             <div *ngIf="file" class="app-upload-slider-container">
               <div>
-                Choose the start and the end of the movement in seconds! ({{
-                  start
-                }}
-                - {{ end }})
+                Choose the start and the end of the movement with the slider!
+                ({{ start }} - {{ end }})
               </div>
 
               <mat-slider
@@ -54,25 +54,30 @@
                 <input [(ngModel)]="end" matSliderEndThumb />
               </mat-slider>
 
-              <mat-icon
-                fontIcon="delete"
-                class="app-upload-delete-file"
+              <div class="app-upload-currenttime">
+                {{ currentTime }}
+              </div>
+            </div>
+
+            <div *ngIf="file" class="app-upload-buttons">
+              <button
                 (click)="removeFile()"
-              ></mat-icon>
+                class="app-upload-delete-file"
+                mat-button
+              >
+                <mat-icon fontIcon="delete"></mat-icon>
+              </button>
+
+              <button
+                (click)="trimFile()"
+                mat-button
+                matStepperNext
+                [disabled]="!file"
+              >
+                Trim video
+              </button>
             </div>
           </ng-container>
-
-          <div class="app-upload-buttons">
-            <div></div>
-            <button
-              (click)="trimFile()"
-              mat-button
-              matStepperNext
-              [disabled]="!file"
-            >
-              Next
-            </button>
-          </div>
         </div>
       </mat-step>
 

@@ -21,21 +21,22 @@
 }
 
 .app-upload-delete-file {
-  position: absolute;
-  top: 2px;
-  right: 1px;
-
+  background-color: red;
   color: white;
-  background-color: grey;
-  border-radius: 50%;
-  padding: 4px;
-
-  z-index: 1000;
 }
 
-.app-upload-delete-file:hover {
-  background-color: red;
-  color: rgb(252, 212, 212);
+.app-upload-currenttime {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 4px;
+  min-width: 47px;
+  text-align: center;
+
+  color: white;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  font-size: 24px;
 }
 
 .app-upload-video-frame {
@@ -105,10 +106,12 @@ mat-stepper {
 ::ng-deep .mat-horizontal-content-container {
   height: 100%;
 }
-
 ::ng-deep .mat-horizontal-stepper-content {
   height: 100%;
   position: relative;
+}
+::ng-deep .mat-horizontal-stepper-header {
+  pointer-events: none !important;
 }
 
 .app-upload-buttons {

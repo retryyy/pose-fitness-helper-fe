@@ -12,12 +12,12 @@ export class UploadComponent {
 
   url?: string;
   file?: File;
+
   duration?: number;
+  currentTime?: number;
 
   start: number = 0;
   end?: number;
-
-  durationText?: string;
 
   constructor(private fileService: FileService) {}
 
@@ -52,6 +52,10 @@ export class UploadComponent {
     this.end = this.duration;
     this.start = 0;
     this.loading = false;
+  }
+
+  onTimeUpdate(e: any) {
+    this.currentTime = Math.round(e.target.currentTime * 10) / 10;
   }
 
   formatLabel(value: number): string {
