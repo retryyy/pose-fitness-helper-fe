@@ -23,18 +23,18 @@
       ></video>
     </div>
 
-    <button (click)="uploadFile()"></button>
+    <button (click)="trimFile()"></button>
 
     <mat-slider
       *ngIf="file"
       min="0"
       [max]="duration"
-      step="1"
+      step="0.1"
       showTickMarks
       discrete
     >
-      <input value="0" matSliderStartThumb />
-      <input [value]="duration" matSliderEndThumb />
+      <input value="0" [(ngModel)]="start" matSliderStartThumb />
+      <input [value]="duration" [(ngModel)]="end" matSliderEndThumb />
     </mat-slider>
   </div>
 </div>

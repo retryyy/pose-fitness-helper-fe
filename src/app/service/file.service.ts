@@ -10,6 +10,17 @@ import { HttpResponse } from '../interface/response';
 export class FileService {
   constructor(private http: HttpClient) {}
 
+  trimFile(file: File, start: number, end: number): Observable<HttpResponse> {
+    let formData: FormData = new FormData();
+    formData.append('file', file, file.name);
+
+    return this.http.post<HttpResponse>(
+      `${environment.server}/trim`,
+      formData,
+      { params: { start, end } }
+    );
+  }
+
   uploadFile(file: File): Observable<HttpResponse> {
     let formData: FormData = new FormData();
     formData.append('file', file, file.name);

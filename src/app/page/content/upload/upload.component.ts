@@ -12,6 +12,9 @@ export class UploadComponent {
   file?: File;
   duration?: number;
 
+  start?: number;
+  end?: number;
+
   constructor(private fileService: FileService) {}
 
   onSelect(event: NgxDropzoneChangeEvent) {
@@ -24,6 +27,10 @@ export class UploadComponent {
         this.url = (<FileReader>event.target).result as string;
       };
     }
+  }
+
+  trimFile() {
+    this.fileService.trimFile(this.file!, this.start!, this.end!).subscribe();
   }
 
   uploadFile() {
