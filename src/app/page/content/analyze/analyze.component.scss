@@ -1,0 +1,14 @@
+.app-analyze-container {
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  flex-flow: wrap;
+}
+
+.app-analyze-card {
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+.app-analyze-card:nth-child(3n) {
+  margin-right: 0;
+}

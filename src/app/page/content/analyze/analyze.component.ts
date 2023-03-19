@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService } from 'src/app/service/file.service';
 
-interface Doc {
+export interface Doc {
   file_id: string;
   thumbnail: string;
+  created: Date;
 }
 
 @Component({

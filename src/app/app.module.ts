@@ -17,6 +17,7 @@ import {
   MatSnackBarModule,
   MAT_SNACK_BAR_DEFAULT_OPTIONS,
 } from '@angular/material/snack-bar';
+import { MatCardModule } from '@angular/material/card';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 
@@ -29,6 +30,7 @@ import { PageComponent } from './page/page.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { TokenInterceptor } from './auth/token.interceptor';
 import { AnalyzeComponent } from './page/content/analyze/analyze.component';
+import { CardComponent } from './page/content/analyze/card/card.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { AnalyzeComponent } from './page/content/analyze/analyze.component';
     PageComponent,
     RegisterComponent,
     AnalyzeComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { AnalyzeComponent } from './page/content/analyze/analyze.component';
     MatIconModule,
     MatProgressSpinnerModule,
     MatSnackBarModule,
+    MatCardModule,
 
     NgxDropzoneModule,
   ],

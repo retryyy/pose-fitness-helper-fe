@@ -1,3 +1,5 @@
-<div *ngFor="let doc of docs">
-  <img src="data:image/jpg;base64,{{ doc.thumbnail }}" />
+<div class="app-analyze-container">
+  <ng-container *ngFor="let doc of docs">
+    <app-card class="app-analyze-card" [doc]="doc"></app-card>
+  </ng-container>
 </div>
