@@ -46,7 +46,14 @@
   width: 666px;
   height: 374.625px;
 
+  display: flex;
+  justify-content: center;
+
   background-color: black;
+
+  img {
+    height: 100%;
+  }
 }
 
 .app-upload-video {
@@ -116,6 +123,10 @@ mat-stepper {
   pointer-events: none !important;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 .app-upload-buttons {
   position: absolute;
   bottom: 0;
@@ -124,4 +135,9 @@ mat-stepper {
 
   display: flex;
   justify-content: space-between;
+
+  button {
+    height: 100%;
+    margin-left: 5px;
+  }
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { MatStepper } from '@angular/material/stepper';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { FileService } from 'src/app/service/file.service';
 
@@ -8,6 +9,8 @@ import { FileService } from 'src/app/service/file.service';
   styleUrls: ['./upload.component.scss'],
 })
 export class UploadComponent {
+  @ViewChild('stepper') private myStepper?: MatStepper;
+
   loading: boolean = false;
 
   url?: string;
@@ -18,6 +21,8 @@ export class UploadComponent {
 
   start: number = 0;
   end?: number;
+
+  trimmedVideo?: string;
 
   constructor(private fileService: FileService) {}
 
@@ -35,7 +40,16 @@ export class UploadComponent {
   }
 
   trimFile(): void {
-    this.fileService.trimFile(this.file!, this.start!, this.end!).subscribe();
+    if (this.file) {
+      this.loading = true;
+      this.fileService
+        .trimFile(this.file, this.start, this.end!)
+        .subscribe((res) => {
+          this.trimmedVideo = res.data;
+          this.myStepper?.next();
+          this.loading = false;
+        });
+    }
   }
 
   uploadFile(): void {
@@ -44,6 +58,7 @@ export class UploadComponent {
 
   removeFile(): void {
     this.file = undefined;
+    this.trimmedVideo = undefined;
     this.url = undefined;
   }
 
@@ -58,7 +73,15 @@ export class UploadComponent {
     this.currentTime = Math.round(e.target.currentTime * 10) / 10;
   }
 
-  formatLabel(value: number): string {
-    return `${value}`;
+  ///////// STEPPER 1
+
+  goForwardTo2() {
+    this.myStepper?.next();
+  }
+
+  ///////// STEPPER 2
+
+  goBackTo1() {
+    this.myStepper?.previous();
   }
 }

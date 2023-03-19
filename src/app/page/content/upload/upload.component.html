@@ -1,7 +1,7 @@
 <div class="app-upload-container">
   <div class="app-upload-form">
     <mat-stepper #stepper animationDuration="0">
-      <mat-step>
+      <mat-step id="trim">
         <div class="app-upload-stepper-container">
           <ng-template matStepLabel>Upload & trim video</ng-template>
 
@@ -59,36 +59,52 @@
               </div>
             </div>
 
-            <div *ngIf="file" class="app-upload-buttons">
+            <div class="app-upload-buttons">
               <button
+                *ngIf="file"
                 (click)="removeFile()"
                 class="app-upload-delete-file"
                 mat-button
               >
                 <mat-icon fontIcon="delete"></mat-icon>
               </button>
+              <ng-container *ngIf="!file">
+                <div></div>
+              </ng-container>
 
-              <button
-                (click)="trimFile()"
-                mat-button
-                matStepperNext
-                [disabled]="!file"
-              >
-                Trim video
-              </button>
+              <div>
+                <button (click)="trimFile()" mat-button [disabled]="!file">
+                  {{ trimmedVideo ? "Re-trim video" : "Trim video" }}
+                </button>
+                <button
+                  *ngIf="trimmedVideo"
+                  (click)="stepper.next()"
+                  mat-button
+                >
+                  Next
+                </button>
+              </div>
             </div>
           </ng-container>
         </div>
       </mat-step>
 
-      <mat-step>
-        <form>
+      <mat-step id="preview">
+        <div class="app-upload-stepper-container">
           <ng-template matStepLabel>Preview</ng-template>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
+
+          <div class="app-upload-video-frame">
+            <img
+              *ngIf="trimmedVideo"
+              src="data:image/gif;base64,{{ trimmedVideo }}"
+            />
+          </div>
+
+          <div class="app-upload-buttons">
+            <button mat-button matStepperPrevious>Previous</button>
             <button mat-button matStepperNext>Next</button>
           </div>
-        </form>
+        </div>
       </mat-step>
 
       <mat-step>
