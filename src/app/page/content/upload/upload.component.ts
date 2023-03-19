@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatStepper } from '@angular/material/stepper';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { FileService } from 'src/app/service/file.service';
@@ -24,7 +25,10 @@ export class UploadComponent {
 
   trimmedVideo?: string;
 
-  constructor(private fileService: FileService) {}
+  constructor(
+    private fileService: FileService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   onSelect(event: NgxDropzoneChangeEvent): void {
     this.loading = true;
@@ -53,13 +57,23 @@ export class UploadComponent {
   }
 
   uploadFile(): void {
-    this.fileService.uploadFile(this.file!).subscribe();
+    if (this.trimmedVideo) {
+      const gifBlob = this.dataURItoBlob(this.trimmedVideo);
+      const fileToUpload = new File([gifBlob], 'lel.gif', {
+        type: 'application/gif',
+      });
+      this.fileService.uploadFile(fileToUpload).subscribe(() => {
+        this._snackBar.open('File was uploaded and analyzed!');
+        this.removeFile();
+      });
+    }
   }
 
   removeFile(): void {
     this.file = undefined;
     this.trimmedVideo = undefined;
     this.url = undefined;
+    this.myStepper?.reset();
   }
 
   setDuration(e: any): void {
@@ -73,15 +87,13 @@ export class UploadComponent {
     this.currentTime = Math.round(e.target.currentTime * 10) / 10;
   }
 
-  ///////// STEPPER 1
-
-  goForwardTo2() {
-    this.myStepper?.next();
-  }
-
-  ///////// STEPPER 2
-
-  goBackTo1() {
-    this.myStepper?.previous();
+  private dataURItoBlob(dataURI: string): Blob {
+    const byteString = window.atob(dataURI);
+    const arrayBuffer = new ArrayBuffer(byteString.length);
+    const int8Array = new Uint8Array(arrayBuffer);
+    for (let i = 0; i < byteString.length; i++) {
+      int8Array[i] = byteString.charCodeAt(i);
+    }
+    return new Blob([int8Array], { type: 'image/gif' });
   }
 }

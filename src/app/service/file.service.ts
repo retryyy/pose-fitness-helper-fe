@@ -34,4 +34,8 @@ export class FileService {
   loadFiles(): Observable<HttpResponse> {
     return this.http.get<HttpResponse>(`${environment.server}/load`);
   }
+
+  loadFile(fileId: string): Observable<HttpResponse> {
+    return this.http.get<HttpResponse>(`${environment.server}/load/${fileId}`);
+  }
 }

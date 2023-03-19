@@ -13,6 +13,10 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {
+  MatSnackBarModule,
+  MAT_SNACK_BAR_DEFAULT_OPTIONS,
+} from '@angular/material/snack-bar';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 
@@ -52,11 +56,13 @@ import { AnalyzeComponent } from './page/content/analyze/analyze.component';
     MatStepperModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    MatSnackBarModule,
 
     NgxDropzoneModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } },
   ],
   bootstrap: [AppComponent],
 })

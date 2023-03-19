@@ -3,12 +3,19 @@
     <mat-stepper #stepper animationDuration="0">
       <mat-step id="trim">
         <div class="app-upload-stepper-container">
-          <ng-template matStepLabel>Upload & trim video</ng-template>
+          <ng-template matStepLabel>Upload & trim</ng-template>
 
           <ng-container *ngIf="loading">
             <div class="app-upload-spinner-container">
               <mat-spinner class="app-upload-spinner"></mat-spinner>
             </div>
+          </ng-container>
+
+          <ng-container *ngIf="!loading">
+            <h3 class="margin-bottom-0 margin-top-0">Upload & trim video</h3>
+            <p class="margin-top-0">
+              Trim the video to get the movement you want to analyze.
+            </p>
           </ng-container>
 
           <div class="app-upload-video-frame" [hidden]="loading">
@@ -34,6 +41,10 @@
               class="app-upload-video"
               controlslist="nodownload nofullscreen noremoteplayback"
             ></video>
+
+            <div *ngIf="file" class="app-upload-currenttime">
+              {{ currentTime }}
+            </div>
           </div>
 
           <ng-container *ngIf="!loading">
@@ -53,10 +64,6 @@
                 <input [(ngModel)]="start" matSliderStartThumb />
                 <input [(ngModel)]="end" matSliderEndThumb />
               </mat-slider>
-
-              <div class="app-upload-currenttime">
-                {{ currentTime }}
-              </div>
             </div>
 
             <div class="app-upload-buttons">
@@ -93,6 +100,14 @@
         <div class="app-upload-stepper-container">
           <ng-template matStepLabel>Preview</ng-template>
 
+          <ng-container *ngIf="!loading">
+            <h3 class="margin-bottom-0 margin-top-0">Preview of the video</h3>
+            <p class="margin-top-0">
+              Double check if the whole movement can be seen in the trimmed
+              video
+            </p>
+          </ng-container>
+
           <div class="app-upload-video-frame">
             <img
               *ngIf="trimmedVideo"
@@ -107,22 +122,15 @@
         </div>
       </mat-step>
 
-      <mat-step>
-        <form>
-          <ng-template matStepLabel>Choose exercise</ng-template>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
+      <mat-step id="finalize">
+        <div class="app-upload-stepper-container">
+          <ng-template matStepLabel>Finalize</ng-template>
+          You are now done.
 
-      <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
-        You are now done.
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="stepper.reset()">Reset</button>
+          <div class="app-upload-buttons">
+            <button mat-button matStepperPrevious>Previous</button>
+            <button mat-button (click)="uploadFile()">Upload</button>
+          </div>
         </div>
       </mat-step>
     </mat-stepper>
