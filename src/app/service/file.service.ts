@@ -38,4 +38,10 @@ export class FileService {
   loadFile(fileId: string): Observable<HttpResponse> {
     return this.http.get<HttpResponse>(`${environment.server}/load/${fileId}`);
   }
+
+  deleteFile(fileId: string): Observable<HttpResponse> {
+    return this.http.delete<HttpResponse>(
+      `${environment.server}/delete/${fileId}`
+    );
+  }
 }
