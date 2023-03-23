@@ -40,3 +40,10 @@ button[disabled] {
 .margin-left-10 {
   margin-left: 10px !important;
 }
+
+mat-icon {
+  border-radius: 50px;
+}
+mat-icon:hover {
+  cursor: pointer;
+}

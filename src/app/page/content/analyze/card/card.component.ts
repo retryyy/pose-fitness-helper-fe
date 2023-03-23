@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Doc } from '../analyze.component';
 
 @Component({
@@ -12,7 +13,15 @@ export class CardComponent {
 
   entered: boolean = false;
 
+  constructor(private router: Router) {}
+
   deleteFile(): void {
     this.deleteDoc.emit(this.doc?.file_id);
+  }
+
+  openFile(): void {
+    this.router.navigateByUrl(`/analyze/${this.doc?.file_id}`, {
+      state: { doc: this.doc },
+    });
   }
 }

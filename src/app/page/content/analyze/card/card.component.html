@@ -14,5 +14,14 @@
   <div class="app-analyze-card-img">
     <img src="data:image/jpg;base64,{{ doc?.thumbnail }}" />
   </div>
-  <div class="app-analyze-card-footer"></div>
+  <div class="app-analyze-card-footer">
+    <div></div>
+    <div class="app-analyze-open">
+      <mat-icon
+        (click)="openFile()"
+        *ngIf="entered"
+        fontIcon="open_in_new"
+      ></mat-icon>
+    </div>
+  </div>
 </div>

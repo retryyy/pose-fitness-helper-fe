@@ -33,6 +33,7 @@ import { TokenInterceptor } from './auth/token.interceptor';
 import { AnalyzeComponent } from './page/content/analyze/analyze.component';
 import { CardComponent } from './page/content/analyze/card/card.component';
 import { PopupComponent } from './common/popup/popup.component';
+import { AnalyzeExerciseComponent } from './page/content/analyze/analyze-exercise/analyze-exercise.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { PopupComponent } from './common/popup/popup.component';
     AnalyzeComponent,
     CardComponent,
     PopupComponent,
+    AnalyzeExerciseComponent,
   ],
   imports: [
     BrowserModule,

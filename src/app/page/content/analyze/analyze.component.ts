@@ -16,19 +16,12 @@ export interface Doc {
 })
 export class AnalyzeComponent implements OnInit {
   docs?: Doc[];
-  data?: string;
 
   constructor(private fileService: FileService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.fileService.loadFiles().subscribe((response) => {
       this.docs = response.data;
-    });
-  }
-
-  loadUpload(fileId: string): void {
-    this.fileService.loadFile(fileId).subscribe((response) => {
-      this.data = response.data;
     });
   }
 

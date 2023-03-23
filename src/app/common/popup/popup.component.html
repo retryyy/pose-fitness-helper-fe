@@ -3,7 +3,9 @@
   <p>{{ data.message }}</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button (click)="onNoClick()" class="margin-left-10">
+    Cancel
+  </button>
   <button
     mat-button
     mat-dialog-close="ok"
