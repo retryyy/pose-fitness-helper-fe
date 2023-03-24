@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatStepper } from '@angular/material/stepper';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
@@ -25,10 +26,18 @@ export class UploadComponent {
 
   trimmedVideo?: string;
 
+  exerciseForm: FormGroup;
+
   constructor(
     private fileService: FileService,
+    private fb: FormBuilder,
     private _snackBar: MatSnackBar
-  ) {}
+  ) {
+    this.exerciseForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(10)]],
+      type: ['', Validators.required],
+    });
+  }
 
   onSelect(event: NgxDropzoneChangeEvent): void {
     this.loading = true;
@@ -57,15 +66,22 @@ export class UploadComponent {
   }
 
   uploadFile(): void {
-    if (this.trimmedVideo) {
+    this.exerciseForm.markAllAsTouched();
+    console.log(this.exerciseForm.valid);
+    console.log(this.exerciseForm);
+
+    if (this.trimmedVideo && this.exerciseForm.valid) {
       const gifBlob = this.dataURItoBlob(this.trimmedVideo);
       const fileToUpload = new File([gifBlob], 'lel.gif', {
         type: 'application/gif',
       });
-      this.fileService.uploadFile(fileToUpload).subscribe(() => {
-        this._snackBar.open('File was uploaded and analyzed!');
-        this.removeFile();
-      });
+      this.fileService
+        .uploadFile(fileToUpload, this.exerciseForm.value)
+        .subscribe(() => {
+          this._snackBar.open('File was uploaded and analyzed!');
+          this.removeFile();
+          this.exerciseForm.reset();
+        });
     }
   }
 

@@ -15,7 +15,14 @@
     <img src="data:image/jpg;base64,{{ doc?.thumbnail }}" />
   </div>
   <div class="app-analyze-card-footer">
-    <div></div>
+    <div class="app-analyze-card-info">
+      <div class="app-analyze-card-info-name margin-bottom-5">
+        {{ doc?.name }}
+      </div>
+      <div class="app-analyze-card-info-type">
+        {{ doc?.type }}
+      </div>
+    </div>
     <div class="app-analyze-open">
       <mat-icon
         (click)="openFile()"

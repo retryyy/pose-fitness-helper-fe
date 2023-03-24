@@ -21,9 +21,10 @@ export class FileService {
     );
   }
 
-  uploadFile(file: File): Observable<HttpResponse> {
+  uploadFile(file: File, body: object): Observable<HttpResponse> {
     let formData: FormData = new FormData();
     formData.append('file', file, file.name);
+    formData.append('body', JSON.stringify(body));
 
     return this.http.post<HttpResponse>(
       `${environment.server}/upload`,

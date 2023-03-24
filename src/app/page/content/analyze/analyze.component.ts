@@ -7,6 +7,8 @@ export interface Doc {
   file_id: string;
   thumbnail: string;
   created: Date;
+  name: string;
+  type: string;
 }
 
 @Component({

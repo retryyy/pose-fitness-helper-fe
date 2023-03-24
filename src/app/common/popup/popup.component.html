@@ -2,16 +2,16 @@
 <div mat-dialog-content>
   <p>{{ data.message }}</p>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()" class="margin-left-10">
-    Cancel
-  </button>
+<div mat-dialog-actions align="end">
   <button
     mat-button
     mat-dialog-close="ok"
     cdkFocusInitial
-    class="margin-left-10"
+    class="margin-right-10"
   >
     Ok
+  </button>
+  <button mat-button (click)="onNoClick()" class="margin-right-10">
+    Cancel
   </button>
 </div>

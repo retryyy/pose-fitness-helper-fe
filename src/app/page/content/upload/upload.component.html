@@ -1,4 +1,4 @@
-<div class="app-upload-container">
+<div class="app-upload-container full-center">
   <div class="app-upload-form">
     <mat-stepper #stepper animationDuration="0">
       <mat-step id="trim">
@@ -125,7 +125,20 @@
       <mat-step id="finalize">
         <div class="app-upload-stepper-container">
           <ng-template matStepLabel>Finalize</ng-template>
-          You are now done.
+
+          <form [formGroup]="exerciseForm" class="app-upload-finalize">
+            Exercise name
+            <mat-form-field class="app-login-input" appearance="outline">
+              <input matInput formControlName="name" />
+              <mat-error>Exercise name is required</mat-error>
+            </mat-form-field>
+
+            Exercise type
+            <mat-form-field class="app-login-input" appearance="outline">
+              <input matInput formControlName="type" />
+              <mat-error>Exercise type is required</mat-error>
+            </mat-form-field>
+          </form>
 
           <div class="app-upload-buttons">
             <button mat-button matStepperPrevious>Previous</button>
