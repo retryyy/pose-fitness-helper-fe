@@ -27,8 +27,12 @@
   justify-content: space-between;
   align-items: center;
 
-  padding-left: 8px;
+  padding-left: 23px;
   padding-right: 8px;
+
+  .app-analyze-card-header-date {
+    pointer-events: none;
+  }
 
   mat-icon {
     padding: 3px;
@@ -68,6 +72,8 @@
     flex-direction: column;
     justify-content: center;
 
+    pointer-events: none;
+
     .app-analyze-card-info-type {
       font-size: 14px;
       background-color: red;
@@ -75,13 +81,12 @@
       padding: 2px 10px;
       border-radius: 12px;
       width: fit-content;
-      pointer-events: none;
     }
     .app-analyze-card-info-name {
       font-weight: 600;
       font-size: 18px;
       text-transform: capitalize;
-      padding-left: 5px;
+      padding-left: 3px;
     }
   }
 

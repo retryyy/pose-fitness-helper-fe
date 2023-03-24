@@ -4,7 +4,9 @@
   (mouseleave)="entered = false"
 >
   <div class="app-analyze-card-header">
-    {{ doc?.created | date : "yyyy/MM/dd HH:mm:ss" }}
+    <div class="app-analyze-card-header-date">
+      {{ doc?.created | date : "yyyy/MM/dd HH:mm:ss" }}
+    </div>
     <mat-icon
       (click)="deleteFile()"
       *ngIf="entered"
