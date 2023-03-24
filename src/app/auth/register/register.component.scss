@@ -1,7 +1,12 @@
 .app-register-container {
   width: 100%;
   height: 100%;
-  background-color: rgb(89, 186, 241);
+  background: linear-gradient(
+    90deg,
+    rgba(11, 45, 93, 1) 0%,
+    rgba(40, 85, 154, 1) 50%,
+    rgba(27, 98, 121, 1) 100%
+  );
 
   .app-register-form-container {
     width: 400px;

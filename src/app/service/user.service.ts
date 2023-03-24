@@ -4,12 +4,17 @@ import { Router } from '@angular/router';
 import { environment } from 'src/environment/environmen';
 import { HttpResponse } from '../interface/response';
 
+interface User {
+  name: string;
+  user_id: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   token: string | null;
-  user?: string | null;
+  user?: User | null;
 
   constructor(private http: HttpClient, private router: Router) {
     this.token = this.getToken();
@@ -22,7 +27,7 @@ export class UserService {
     }
 
     try {
-      this.user = JSON.parse(atob(this.token.split('.')[1]));
+      this.user = JSON.parse(atob(this.token.split('.')[1])) as User;
     } catch (e) {
       this.user = null;
     }
@@ -61,7 +66,7 @@ export class UserService {
     this.user = null;
   }
 
-  getInitials(): string {
-    return 'AE';
+  getName(): string {
+    return this.user?.name!;
   }
 }

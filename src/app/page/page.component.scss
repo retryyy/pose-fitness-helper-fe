@@ -1,13 +1,20 @@
 .app-container {
   width: 100%;
   height: calc(100% - 50px);
+
+  background: linear-gradient(
+    90deg,
+    rgba(11, 45, 93, 1) 0%,
+    rgba(40, 85, 154, 1) 50%,
+    rgba(27, 98, 121, 1) 100%
+  );
 }
 
 .app-sidenav {
   width: 300px;
-  background-color: grey;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .app-content {
-  background-color: chocolate;
+  background-color: rgba(255, 255, 255, 0);
 }
