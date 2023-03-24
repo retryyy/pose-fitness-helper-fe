@@ -1,25 +1,31 @@
-<div class="app-form-container">
-  <form [formGroup]="loginForm" class="app-login-form">
-    <mat-form-field class="app-login-input">
-      <mat-label>User name</mat-label>
-      <input matInput formControlName="name" />
-      <mat-error>User name is required</mat-error>
-    </mat-form-field>
+<div class="app-login-container full-center">
+  <div class="app-login-form-container">
+    <span class="app-login-signin">SIGN IN</span>
 
-    <mat-form-field class="app-login-input">
-      <mat-label>Password</mat-label>
-      <input type="password" matInput formControlName="password" />
-      <mat-error>Password is required</mat-error>
-    </mat-form-field>
+    <form [formGroup]="loginForm" class="app-login-form">
+      User name
+      <mat-form-field class="app-login-input" appearance="outline">
+        <input matInput formControlName="name" />
+        <mat-icon matPrefix>account_circle</mat-icon>
+        <mat-error>User name is required</mat-error>
+      </mat-form-field>
 
-    <button
-      type="submit"
-      class="button"
-      (click)="login()"
-      [disabled]="!loginForm.valid"
-    >
-      Sign in
-    </button>
-  </form>
-  <a routerLink="/register">Sign up</a>
+      Password
+      <mat-form-field class="app-login-input" appearance="outline">
+        <input type="password" matInput formControlName="password" />
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-error>Password is required</mat-error>
+      </mat-form-field>
+
+      <button type="submit" class="button signin-button" (click)="login()">
+        Sign in
+      </button>
+    </form>
+
+    <mat-divider></mat-divider>
+
+    <div class="app-login-footer full-center">
+      <span>Not yet a user? <a routerLink="/register">SING UP</a></span>
+    </div>
+  </div>
 </div>

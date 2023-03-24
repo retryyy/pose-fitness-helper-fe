@@ -1,34 +1,41 @@
-<div class="app-form-container">
-  <form [formGroup]="registerForm" class="app-register-form">
-    <mat-form-field class="app-register-input">
-      <mat-label>User name</mat-label>
-      <input matInput formControlName="name" />
-      <mat-error>User name is required</mat-error>
-    </mat-form-field>
+<div class="app-register-container full-center">
+  <div class="app-register-form-container">
+    <span class="app-login-signin">SIGN UP</span>
 
-    <mat-form-field class="app-register-input">
-      <mat-label>Password</mat-label>
-      <input type="password" matInput formControlName="password1" />
-      <mat-error>Password is required</mat-error>
-    </mat-form-field>
+    <form [formGroup]="registerForm" class="app-register-form">
+      User name
+      <mat-form-field class="app-register-input" appearance="outline">
+        <input matInput formControlName="name" />
+        <mat-icon matPrefix>account_circle</mat-icon>
+        <mat-error>User name is required</mat-error>
+      </mat-form-field>
 
-    <mat-form-field class="app-register-input">
-      <mat-label>Confirm password</mat-label>
-      <input type="password" matInput formControlName="password2" />
-      <mat-error>Password is required</mat-error>
-    </mat-form-field>
+      Password
+      <mat-form-field class="app-register-input" appearance="outline">
+        <input type="password" matInput formControlName="password1" />
+        <mat-icon matPrefix>lock</mat-icon>
+        <mat-error>Password is required</mat-error>
+      </mat-form-field>
 
-    <button
-      type="submit"
-      class="button"
-      (click)="register()"
-      [disabled]="!registerForm.valid"
-    >
-      Sign up
-    </button>
-    <mat-error *ngIf="registerForm.hasError('password')">
-      Passwords are not matching
-    </mat-error>
-  </form>
-  <a routerLink="/login">Sign in</a>
+      Confirm password
+      <mat-form-field class="app-register-input" appearance="outline">
+        <input type="password" matInput formControlName="password2" />
+        <mat-icon matPrefix>lock_reset</mat-icon>
+        <mat-error>Password is required</mat-error>
+      </mat-form-field>
+
+      <button type="submit" class="button signup-button" (click)="register()">
+        Sign up
+      </button>
+      <mat-error *ngIf="registerForm.hasError('password')">
+        Passwords are not matching
+      </mat-error>
+    </form>
+
+    <mat-divider></mat-divider>
+
+    <div class="app-register-footer full-center">
+      <span>Already a user? <a routerLink="/login">SING IN</a></span>
+    </div>
+  </div>
 </div>

@@ -41,6 +41,12 @@ button[disabled] {
   margin-left: 10px !important;
 }
 
+.full-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 mat-icon {
   border-radius: 50px;
 }
