@@ -91,10 +91,12 @@ mat-spinner {
   color: black;
 
   border: 1px;
-  border-style: dashed;
+  border: 2px dashed rgb(59, 58, 58);
 }
 .app-upload-dropzone:hover {
-  background-color: antiquewhite;
+  background-color: #ebf4f7;
+  border: 2px dashed #0099cc;
+  color: #0099cc;
 }
 
 .app-upload-slider-container {

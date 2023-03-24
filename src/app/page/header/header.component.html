@@ -1,7 +1,24 @@
 <div class="app-header">
-  <div class="app-header-page-name">Pose estimation trainer</div>
+  <div class="app-header-page-name">
+    <div>Exercise analyzer</div>
+    <div>
+      <span class="app-header-poweredby">powered by POSE ESTIMATION</span>
+    </div>
+  </div>
   <div></div>
-  <div *ngIf="userService.isLoggedIn()" class="app-header-user full-center">
+
+  <div
+    *ngIf="userService.isLoggedIn()"
+    [matMenuTriggerFor]="menu"
+    class="app-header-user full-center"
+  >
     {{ userService.getName() }}
   </div>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
 </div>

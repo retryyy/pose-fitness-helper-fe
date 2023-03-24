@@ -6,7 +6,6 @@
   flex-direction: column;
 
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.7);
   background-color: rgba(255, 255, 255, 0.9);
 
   box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.1);
@@ -14,7 +13,7 @@
   transition: box-shadow linear 0.15s, opacity linear 0.15s;
 }
 .app-analyze-card:hover {
-  box-shadow: 0px 0px 3px 3px rgb(195, 133, 18);
+  box-shadow: 0px 0px 3px 3px purple;
   opacity: 1;
   transition: box-shadow linear 0.15s, opacity linear 0.15s;
 }

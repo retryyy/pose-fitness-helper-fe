@@ -20,6 +20,7 @@ import {
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 
@@ -69,6 +70,7 @@ import { AnalyzeExerciseComponent } from './page/content/analyze/analyze-exercis
     MatCardModule,
     MatDialogModule,
     MatDividerModule,
+    MatMenuModule,
 
     NgxDropzoneModule,
   ],
