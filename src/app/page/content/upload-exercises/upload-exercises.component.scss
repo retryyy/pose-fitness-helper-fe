@@ -1,0 +1,64 @@
+.app-upload-exercises-container {
+  width: 100%;
+  height: 100%;
+}
+
+.app-upload-exercises {
+  width: 600px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 30px;
+}
+
+.app-upload-exercises-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.app-upload-exercises-slot-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-gap: 10px;
+
+  width: 100%;
+}
+
+.app-upload-exercises-slot-base {
+  height: 109px;
+  border-radius: 5px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.app-upload-exercises-slot-img {
+  border: 1px solid black;
+  background-color: black;
+}
+
+.app-upload-exercises-slot-choose {
+  border: 1px dashed black;
+  background-color: rgba(0, 0, 0, 0.1);
+
+  mat-icon {
+    transform: scale(2);
+    color: rgba(255, 255, 255, 0.4);
+  }
+}
+.app-upload-exercises-slot-choose:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+
+  mat-icon {
+    color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+.app-upload-exercises-submit {
+  width: 50%;
+}

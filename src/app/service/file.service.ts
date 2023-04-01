@@ -21,9 +21,9 @@ export class FileService {
     );
   }
 
-  uploadFile(file: File, body: object): Observable<HttpResponse> {
+  uploadFiles(files: File[], body: object): Observable<HttpResponse> {
     let formData: FormData = new FormData();
-    formData.append('file', file, file.name);
+    files.forEach((file) => formData.append('files', file));
     formData.append('body', JSON.stringify(body));
 
     return this.http.post<HttpResponse>(

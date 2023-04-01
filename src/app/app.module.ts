@@ -36,6 +36,8 @@ import { AnalyzeComponent } from './page/content/analyze/analyze.component';
 import { CardComponent } from './page/content/analyze/card/card.component';
 import { PopupComponent } from './common/popup/popup.component';
 import { AnalyzeExerciseComponent } from './page/content/analyze/analyze-exercise/analyze-exercise.component';
+import { UploadExercisesComponent } from './page/content/upload-exercises/upload-exercises.component';
+import { UploadExercisesPreviewComponent } from './page/content/upload-exercises/upload-exercises-preview/upload-exercises-preview.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { AnalyzeExerciseComponent } from './page/content/analyze/analyze-exercis
     CardComponent,
     PopupComponent,
     AnalyzeExerciseComponent,
+    UploadExercisesComponent,
+    UploadExercisesPreviewComponent,
   ],
   imports: [
     BrowserModule,

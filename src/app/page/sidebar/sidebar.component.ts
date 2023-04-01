@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 interface SideBarElem {
   title: string;
   navigate: string;
+  icon: string;
 }
 
 @Component({
@@ -16,14 +17,17 @@ export class SidebarComponent {
     {
       title: 'Home',
       navigate: '/',
+      icon: 'home',
     },
     {
       title: 'Upload data',
       navigate: '/upload',
+      icon: 'upload_file',
     },
     {
       title: 'Analyze data',
       navigate: '/analyze',
+      icon: 'query_stats',
     },
   ];
 

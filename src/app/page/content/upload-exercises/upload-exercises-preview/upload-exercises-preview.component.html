@@ -1,0 +1,14 @@
+<div
+  class="app-upload-exercises-preview"
+  (mouseenter)="entered = true"
+  (mouseleave)="entered = false"
+>
+  <img
+    src="data:image/gif;base64,{{ file }}"
+    [ngClass]="{ 'entered-img': entered }"
+  />
+
+  <mat-icon *ngIf="entered" class="full-center" (click)="deleteGif()">
+    delete
+  </mat-icon>
+</div>

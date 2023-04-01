@@ -7,8 +7,8 @@ import { RegisterComponent } from './auth/register/register.component';
 import { AnalyzeExerciseComponent } from './page/content/analyze/analyze-exercise/analyze-exercise.component';
 import { AnalyzeComponent } from './page/content/analyze/analyze.component';
 import { HomeComponent } from './page/content/home/home.component';
-import { UploadComponent } from './page/content/upload/upload.component';
 import { PageComponent } from './page/page.component';
+import { UploadExercisesComponent } from './page/content/upload-exercises/upload-exercises.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [LoginPageGuard] },
@@ -23,7 +23,7 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     children: [
       { path: '', component: HomeComponent },
-      { path: 'upload', component: UploadComponent },
+      { path: 'upload', component: UploadExercisesComponent },
       {
         path: 'analyze',
         component: AnalyzeComponent,

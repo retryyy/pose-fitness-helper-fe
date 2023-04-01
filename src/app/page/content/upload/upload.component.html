@@ -1,151 +1,123 @@
-<div class="app-upload-container full-center">
-  <div class="app-upload-form">
-    <mat-stepper #stepper animationDuration="0">
-      <mat-step id="trim">
-        <div class="app-upload-stepper-container">
-          <ng-template matStepLabel>Upload & trim</ng-template>
+<div class="app-upload-form">
+  <mat-icon class="app-upload-form-close" (click)="close()">close</mat-icon>
 
-          <ng-container *ngIf="loading">
-            <div class="app-upload-spinner-container">
-              <mat-spinner class="app-upload-spinner"></mat-spinner>
+  <mat-stepper #stepper animationDuration="0">
+    <mat-step id="trim">
+      <div class="app-upload-stepper-container">
+        <ng-template matStepLabel>Upload & trim</ng-template>
+
+        <ng-container *ngIf="loading">
+          <div class="app-upload-spinner-container">
+            <mat-spinner class="app-upload-spinner"></mat-spinner>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="!loading">
+          <h3 class="margin-bottom-0 margin-top-0">Upload & trim video</h3>
+          <p class="margin-top-0">
+            Trim the video to get the movement you want to analyze.
+          </p>
+        </ng-container>
+
+        <div class="app-upload-video-frame" [hidden]="loading">
+          <div
+            class="app-upload-dropzone"
+            ngx-dropzone
+            *ngIf="!file"
+            (change)="onSelect($event)"
+            [multiple]="false"
+            accept="video/*"
+          >
+            Drag-and-drop a video, or click and choose one!
+          </div>
+
+          <video
+            [src]="url"
+            *ngIf="file"
+            (durationchange)="setDuration($event)"
+            (timeupdate)="onTimeUpdate($event)"
+            controls
+            playsinline
+            muted
+            class="app-upload-video"
+            controlslist="nodownload nofullscreen noremoteplayback"
+          ></video>
+
+          <div *ngIf="file" class="app-upload-currenttime">
+            {{ currentTime }}
+          </div>
+        </div>
+
+        <ng-container *ngIf="!loading">
+          <div *ngIf="file" class="app-upload-slider-container">
+            <div>
+              Choose the start and the end of the movement with the slider! ({{
+                start
+              }}
+              - {{ end }})
             </div>
-          </ng-container>
 
-          <ng-container *ngIf="!loading">
-            <h3 class="margin-bottom-0 margin-top-0">Upload & trim video</h3>
-            <p class="margin-top-0">
-              Trim the video to get the movement you want to analyze.
-            </p>
-          </ng-container>
-
-          <div class="app-upload-video-frame" [hidden]="loading">
-            <div
-              class="app-upload-dropzone"
-              ngx-dropzone
-              *ngIf="!file"
-              (change)="onSelect($event)"
-              [multiple]="false"
-              accept="video/*"
+            <mat-slider
+              min="0"
+              [max]="duration"
+              step="0.1"
+              showTickMarks
+              discrete
             >
-              Drag-and-drop a video, or click and choose one!
-            </div>
+              <input [(ngModel)]="start" matSliderStartThumb />
+              <input [(ngModel)]="end" matSliderEndThumb />
+            </mat-slider>
+          </div>
 
-            <video
-              [src]="url"
+          <div class="app-upload-buttons">
+            <button
               *ngIf="file"
-              (durationchange)="setDuration($event)"
-              (timeupdate)="onTimeUpdate($event)"
-              controls
-              playsinline
-              muted
-              class="app-upload-video"
-              controlslist="nodownload nofullscreen noremoteplayback"
-            ></video>
+              (click)="removeFile()"
+              class="app-upload-delete-file"
+              mat-button
+            >
+              <mat-icon fontIcon="delete"></mat-icon>
+            </button>
+            <ng-container *ngIf="!file">
+              <div></div>
+            </ng-container>
 
-            <div *ngIf="file" class="app-upload-currenttime">
-              {{ currentTime }}
-            </div>
-          </div>
-
-          <ng-container *ngIf="!loading">
-            <div *ngIf="file" class="app-upload-slider-container">
-              <div>
-                Choose the start and the end of the movement with the slider!
-                ({{ start }} - {{ end }})
-              </div>
-
-              <mat-slider
-                min="0"
-                [max]="duration"
-                step="0.1"
-                showTickMarks
-                discrete
-              >
-                <input [(ngModel)]="start" matSliderStartThumb />
-                <input [(ngModel)]="end" matSliderEndThumb />
-              </mat-slider>
-            </div>
-
-            <div class="app-upload-buttons">
-              <button
-                *ngIf="file"
-                (click)="removeFile()"
-                class="app-upload-delete-file"
-                mat-button
-              >
-                <mat-icon fontIcon="delete"></mat-icon>
+            <div>
+              <button (click)="trimFile()" mat-button [disabled]="!file">
+                {{ trimmedVideo ? "Re-trim video" : "Trim video" }}
               </button>
-              <ng-container *ngIf="!file">
-                <div></div>
-              </ng-container>
-
-              <div>
-                <button (click)="trimFile()" mat-button [disabled]="!file">
-                  {{ trimmedVideo ? "Re-trim video" : "Trim video" }}
-                </button>
-                <button
-                  *ngIf="trimmedVideo"
-                  (click)="stepper.next()"
-                  mat-button
-                >
-                  Next
-                </button>
-              </div>
+              <button *ngIf="trimmedVideo" (click)="stepper.next()" mat-button>
+                Next
+              </button>
             </div>
-          </ng-container>
-        </div>
-      </mat-step>
-
-      <mat-step id="preview">
-        <div class="app-upload-stepper-container">
-          <ng-template matStepLabel>Preview</ng-template>
-
-          <ng-container *ngIf="!loading">
-            <h3 class="margin-bottom-0 margin-top-0">Preview of the video</h3>
-            <p class="margin-top-0">
-              Double check if the whole movement can be seen in the trimmed
-              video
-            </p>
-          </ng-container>
-
-          <div class="app-upload-video-frame">
-            <img
-              *ngIf="trimmedVideo"
-              src="data:image/gif;base64,{{ trimmedVideo }}"
-            />
           </div>
+        </ng-container>
+      </div>
+    </mat-step>
 
-          <div class="app-upload-buttons">
-            <button mat-button matStepperPrevious>Previous</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
+    <mat-step id="preview">
+      <div class="app-upload-stepper-container">
+        <ng-template matStepLabel>Preview</ng-template>
+
+        <ng-container *ngIf="!loading">
+          <h3 class="margin-bottom-0 margin-top-0">Preview of the video</h3>
+          <p class="margin-top-0">
+            Double check if the whole movement can be seen in the trimmed video
+          </p>
+        </ng-container>
+
+        <div class="app-upload-video-frame">
+          <img
+            *ngIf="trimmedVideo"
+            src="data:image/gif;base64,{{ trimmedVideo }}"
+          />
         </div>
-      </mat-step>
 
-      <mat-step id="finalize">
-        <div class="app-upload-stepper-container">
-          <ng-template matStepLabel>Finalize</ng-template>
-
-          <form [formGroup]="exerciseForm" class="app-upload-finalize">
-            Exercise name
-            <mat-form-field class="app-login-input" appearance="outline">
-              <input matInput formControlName="name" />
-              <mat-error>Exercise name is required</mat-error>
-            </mat-form-field>
-
-            Exercise type
-            <mat-form-field class="app-login-input" appearance="outline">
-              <input matInput formControlName="type" />
-              <mat-error>Exercise type is required</mat-error>
-            </mat-form-field>
-          </form>
-
-          <div class="app-upload-buttons">
-            <button mat-button matStepperPrevious>Previous</button>
-            <button mat-button (click)="uploadFile()">Upload</button>
-          </div>
+        <div class="app-upload-buttons">
+          <button mat-button matStepperPrevious>Previous</button>
+          <button mat-button (click)="loadVideo()">Load</button>
         </div>
-      </mat-step>
-    </mat-stepper>
-  </div>
+      </div>
+    </mat-step>
+  </mat-stepper>
 </div>

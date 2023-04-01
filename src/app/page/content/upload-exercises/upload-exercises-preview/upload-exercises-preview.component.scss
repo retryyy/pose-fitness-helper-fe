@@ -1,0 +1,23 @@
+.app-upload-exercises-preview {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    height: 100%;
+    max-width: 100%;
+  }
+
+  .entered-img {
+    opacity: 0.5;
+  }
+
+  mat-icon {
+    position: absolute;
+    transform: scale(1.5);
+    color: rgba(255, 34, 34, 0.8);
+  }
+}
