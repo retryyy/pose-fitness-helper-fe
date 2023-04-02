@@ -5,7 +5,7 @@
 >
   <div class="app-analyze-card-header">
     <div class="app-analyze-card-header-date">
-      {{ doc?.created | date : "yyyy/MM/dd HH:mm:ss" }}
+      {{ exercise?.created | date : "yyyy/MM/dd HH:mm:ss" }}
     </div>
     <mat-icon
       (click)="deleteFile()"
@@ -14,15 +14,15 @@
     ></mat-icon>
   </div>
   <div class="app-analyze-card-img">
-    <img src="data:image/jpg;base64,{{ doc?.thumbnail }}" />
+    <img src="data:image/jpg;base64,{{ exercise?.thumbnail }}" />
   </div>
   <div class="app-analyze-card-footer">
     <div class="app-analyze-card-info">
       <div class="app-analyze-card-info-name margin-bottom-5">
-        {{ doc?.name }}
+        {{ exercise?.name }}
       </div>
       <div class="app-analyze-card-info-type">
-        {{ doc?.type }}
+        {{ exercise?.type }}
       </div>
     </div>
     <div class="app-analyze-open">

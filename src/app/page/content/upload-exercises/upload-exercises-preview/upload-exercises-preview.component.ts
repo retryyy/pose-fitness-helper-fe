@@ -10,7 +10,9 @@ import { PopupComponent } from 'src/app/common/popup/popup.component';
 export class UploadExercisesPreviewComponent {
   @Input() file?: string;
   @Input() index?: number;
+  @Input() thumbnail?: boolean;
   @Output() deleteGifEvent = new EventEmitter<number>();
+  @Output() setThumbnailEvent = new EventEmitter<number>();
 
   entered: boolean = false;
 
@@ -29,5 +31,9 @@ export class UploadExercisesPreviewComponent {
         this.deleteGifEvent.emit(this.index);
       }
     });
+  }
+
+  setThumbnail(): void {
+    this.setThumbnailEvent.emit(this.index);
   }
 }

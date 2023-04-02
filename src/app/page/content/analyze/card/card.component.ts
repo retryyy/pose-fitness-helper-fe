@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { Doc } from '../analyze.component';
+import { ExerciseThumbnail } from '../analyze.component';
 
 @Component({
   selector: 'app-card',
@@ -8,7 +8,7 @@ import { Doc } from '../analyze.component';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
-  @Input() doc?: Doc;
+  @Input() exercise?: ExerciseThumbnail;
   @Output() deleteDoc = new EventEmitter<string>();
 
   entered: boolean = false;
@@ -16,12 +16,10 @@ export class CardComponent {
   constructor(private router: Router) {}
 
   deleteFile(): void {
-    this.deleteDoc.emit(this.doc?.file_id);
+    this.deleteDoc.emit(this.exercise?.id);
   }
 
   openFile(): void {
-    this.router.navigateByUrl(`/analyze/${this.doc?.file_id}`, {
-      state: { doc: this.doc },
-    });
+    this.router.navigateByUrl(`/analyze/${this.exercise?.id}`);
   }
 }

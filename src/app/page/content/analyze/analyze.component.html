@@ -1,9 +1,9 @@
 <div class="app-analyze-container">
-  <ng-container *ngFor="let doc of docs">
+  <ng-container *ngFor="let exercise of exercises">
     <app-card
       (deleteDoc)="deleteDocById($event)"
       class="app-analyze-card"
-      [doc]="doc"
+      [exercise]="exercise"
     ></app-card>
   </ng-container>
 </div>

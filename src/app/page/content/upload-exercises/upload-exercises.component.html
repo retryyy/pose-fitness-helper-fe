@@ -17,8 +17,6 @@
         <input matInput formControlName="type" />
         <mat-error>Exercise type is required</mat-error>
       </mat-form-field>
-
-      Shared persons
     </div>
 
     Upload video
@@ -30,7 +28,10 @@
         <app-upload-exercises-preview
           [file]="file"
           [index]="i"
+          [thumbnail]="i === thumbnailIndex"
           (deleteGifEvent)="deleteGif($event)"
+          (setThumbnailEvent)="setThumbnail($event)"
+          style="width: 100%"
         ></app-upload-exercises-preview>
       </div>
       <div

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FileService } from 'src/app/service/file.service';
+import { Exercise, ExerciseFile } from '../analyze.component';
 
 @Component({
   selector: 'app-analyze-exercise',
@@ -9,7 +10,7 @@ import { FileService } from 'src/app/service/file.service';
 })
 export class AnalyzeExerciseComponent implements OnInit {
   fileId: string | null;
-  movement?: string;
+  movements?: ExerciseFile[];
   movementName?: string;
   movementType?: string;
 
@@ -19,9 +20,11 @@ export class AnalyzeExerciseComponent implements OnInit {
 
   ngOnInit(): void {
     this.fileService.loadFile(this.fileId!).subscribe((response) => {
-      this.movement = response.data.file;
-      this.movementName = response.data.name;
-      this.movementType = response.data.type;
+      const exerciseData: Exercise = response.data;
+
+      this.movements = exerciseData.files;
+      this.movementName = exerciseData.name;
+      this.movementType = exerciseData.type;
     });
   }
 }

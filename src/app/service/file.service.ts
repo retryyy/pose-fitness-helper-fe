@@ -33,11 +33,13 @@ export class FileService {
   }
 
   loadFiles(): Observable<HttpResponse> {
-    return this.http.get<HttpResponse>(`${environment.server}/load`);
+    return this.http.get<HttpResponse>(`${environment.server}/exercises`);
   }
 
-  loadFile(fileId: string): Observable<HttpResponse> {
-    return this.http.get<HttpResponse>(`${environment.server}/load/${fileId}`);
+  loadFile(exerciseId: string): Observable<HttpResponse> {
+    return this.http.get<HttpResponse>(
+      `${environment.server}/exercises/${exerciseId}`
+    );
   }
 
   deleteFile(fileId: string): Observable<HttpResponse> {

@@ -1,6 +1,7 @@
 .app-upload-exercises-preview {
   height: 100%;
   width: 100%;
+  position: relative;
 
   display: flex;
   justify-content: center;
@@ -15,7 +16,19 @@
     opacity: 0.5;
   }
 
-  mat-icon {
+  .app-upload-exercises-preview-options-thumbnail-base {
+    position: absolute;
+    right: 3px;
+    top: 3px;
+  }
+  .app-upload-exercises-preview-options-thumbnail-unset {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .app-upload-exercises-preview-options-thumbnail-set {
+    color: rgba(255, 200, 0, 0.8);
+  }
+
+  .app-upload-exercises-preview-options-delete {
     position: absolute;
     transform: scale(1.5);
     color: rgba(255, 34, 34, 0.8);

@@ -21,6 +21,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 
@@ -75,6 +76,7 @@ import { UploadExercisesPreviewComponent } from './page/content/upload-exercises
     MatDialogModule,
     MatDividerModule,
     MatMenuModule,
+    MatTooltipModule,
 
     NgxDropzoneModule,
   ],

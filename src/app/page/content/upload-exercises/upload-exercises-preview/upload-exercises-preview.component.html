@@ -8,7 +8,25 @@
     [ngClass]="{ 'entered-img': entered }"
   />
 
-  <mat-icon *ngIf="entered" class="full-center" (click)="deleteGif()">
+  <mat-icon
+    *ngIf="entered || thumbnail"
+    matTooltip="Set as thumbnail"
+    class="app-upload-exercises-preview-options-thumbnail-base"
+    [ngClass]="
+      thumbnail
+        ? 'app-upload-exercises-preview-options-thumbnail-set'
+        : 'app-upload-exercises-preview-options-thumbnail-unset'
+    "
+    (click)="setThumbnail()"
+  >
+    grade
+  </mat-icon>
+  <mat-icon
+    *ngIf="entered"
+    (click)="deleteGif()"
+    matTooltip="Delete video"
+    class="app-upload-exercises-preview-options-delete full-center"
+  >
     delete
   </mat-icon>
 </div>

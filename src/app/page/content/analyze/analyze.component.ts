@@ -3,12 +3,21 @@ import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from 'src/app/common/popup/popup.component';
 import { FileService } from 'src/app/service/file.service';
 
-export interface Doc {
-  file_id: string;
+export interface ExerciseThumbnail {
+  id: string;
   thumbnail: string;
   created: Date;
   name: string;
   type: string;
+}
+
+export interface ExerciseFile {
+  file: string;
+}
+export interface Exercise {
+  name: string;
+  type: string;
+  files: ExerciseFile[];
 }
 
 @Component({
@@ -17,13 +26,13 @@ export interface Doc {
   styleUrls: ['./analyze.component.scss'],
 })
 export class AnalyzeComponent implements OnInit {
-  docs?: Doc[];
+  exercises?: ExerciseThumbnail[];
 
   constructor(private fileService: FileService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.fileService.loadFiles().subscribe((response) => {
-      this.docs = response.data;
+      this.exercises = response.data;
     });
   }
 
@@ -38,7 +47,7 @@ export class AnalyzeComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.fileService.deleteFile(id).subscribe(() => {
-          this.docs = this.docs?.filter((doc) => doc.file_id !== id);
+          // this.docs = this.docs?.filter((doc) => doc.file_id !== id);
         });
       }
     });

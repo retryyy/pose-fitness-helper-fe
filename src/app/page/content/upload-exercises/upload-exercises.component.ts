@@ -14,6 +14,7 @@ export class UploadExercisesComponent {
   exerciseForm: FormGroup;
 
   files: string[] = [];
+  thumbnailIndex: number = 0;
 
   constructor(
     private fileService: FileService,
@@ -37,8 +38,12 @@ export class UploadExercisesComponent {
     });
   }
 
-  deleteGif(index: number) {
+  deleteGif(index: number): void {
     this.files.splice(index, 1);
+  }
+
+  setThumbnail(index: number): void {
+    this.thumbnailIndex = index;
   }
 
   uploadFile(): void {
@@ -53,7 +58,11 @@ export class UploadExercisesComponent {
       });
 
       this.fileService
-        .uploadFiles(gifBlobs, this.exerciseForm.value)
+        .uploadFiles(gifBlobs, {
+          name: this.exerciseForm.get('name')?.value,
+          type: this.exerciseForm.get('type')?.value,
+          thumbnailIndex: this.thumbnailIndex,
+        })
         .subscribe(() => {
           this._snackBar.open('Files were uploaded and analyzed!');
           this.exerciseForm.reset();
