@@ -5,6 +5,11 @@ import { UploadComponent } from '../upload/upload.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileService } from 'src/app/service/file.service';
 
+interface ExerciseSelect {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-upload-exercises',
   templateUrl: './upload-exercises.component.html',
@@ -15,6 +20,12 @@ export class UploadExercisesComponent {
 
   files: string[] = [];
   thumbnailIndex: number = 0;
+
+  exercises: ExerciseSelect[] = [
+    { value: 'BENCH_PRESS', viewValue: 'Bench press' },
+    { value: 'SQUAT', viewValue: 'Squat' },
+    { value: 'SKULL_CRUSH', viewValue: 'Skull crush' },
+  ];
 
   constructor(
     private fileService: FileService,
@@ -40,6 +51,7 @@ export class UploadExercisesComponent {
 
   deleteGif(index: number): void {
     this.files.splice(index, 1);
+    this.thumbnailIndex = 0;
   }
 
   setThumbnail(index: number): void {

@@ -22,6 +22,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 
@@ -77,6 +78,7 @@ import { UploadExercisesPreviewComponent } from './page/content/upload-exercises
     MatDividerModule,
     MatMenuModule,
     MatTooltipModule,
+    MatSelectModule,
 
     NgxDropzoneModule,
   ],

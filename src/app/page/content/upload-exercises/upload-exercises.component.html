@@ -1,50 +1,67 @@
 <div class="app-upload-exercises-container full-center">
   <div class="app-upload-exercises">
-    <h1>Upload exercise</h1>
-    <p class="margin-top-0">
-      Upload and analyze one or multiple videos for a particular exercise
-    </p>
-
-    <div [formGroup]="exerciseForm" class="app-upload-exercises-form">
-      Exercise name
-      <mat-form-field appearance="outline">
-        <input matInput formControlName="name" />
-        <mat-error>Exercise name is required</mat-error>
-      </mat-form-field>
-
-      Exercise type
-      <mat-form-field appearance="outline">
-        <input matInput formControlName="type" />
-        <mat-error>Exercise type is required</mat-error>
-      </mat-form-field>
+    <div class="app-upload-exercises-header">
+      <h1 class="margin-bottom-5 margin-top-0">Upload exercise</h1>
+      <p class="margin-top-0 margin-bottom-0 font-size-14">
+        Upload and analyze one or multiple videos for a particular exercise from
+        different angles. After uploading an exercise it is no longer possible
+        to change the content.
+      </p>
     </div>
 
-    Upload video
-    <div class="app-upload-exercises-slot-container">
-      <div
-        class="app-upload-exercises-slot-base app-upload-exercises-slot-img"
-        *ngFor="let file of files; let i = index"
-      >
-        <app-upload-exercises-preview
-          [file]="file"
-          [index]="i"
-          [thumbnail]="i === thumbnailIndex"
-          (deleteGifEvent)="deleteGif($event)"
-          (setThumbnailEvent)="setThumbnail($event)"
-          style="width: 100%"
-        ></app-upload-exercises-preview>
+    <div class="app-upload-exercises-content">
+      <div [formGroup]="exerciseForm" class="app-upload-exercises-form">
+        <span class="app-upload-exercises-subtitle">Exercise name</span>
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="name" />
+          <mat-error>Exercise name is required</mat-error>
+        </mat-form-field>
+
+        <span class="app-upload-exercises-subtitle">Exercise type</span>
+        <mat-form-field appearance="outline">
+          <mat-label>Select a type</mat-label>
+          <mat-select formControlName="type" name="food">
+            <mat-option
+              *ngFor="let exercise of exercises"
+              [value]="exercise.value"
+            >
+              {{ exercise.viewValue }}
+            </mat-option>
+          </mat-select>
+          <mat-error>Exercise type is required</mat-error>
+        </mat-form-field>
       </div>
-      <div
-        class="app-upload-exercises-slot-base app-upload-exercises-slot-choose full-center"
-      >
-        <mat-icon (click)="openUpload()">add_circle_outline</mat-icon>
+
+      <span class="app-upload-exercises-subtitle">Upload video</span>
+      <div class="app-upload-exercises-slot-container">
+        <div
+          class="app-upload-exercises-slot-base app-upload-exercises-slot-img"
+          *ngFor="let file of files; let i = index"
+        >
+          <app-upload-exercises-preview
+            [file]="file"
+            [index]="i"
+            [thumbnail]="i === thumbnailIndex"
+            (deleteGifEvent)="deleteGif($event)"
+            (setThumbnailEvent)="setThumbnail($event)"
+            style="width: 100%"
+          ></app-upload-exercises-preview>
+        </div>
+        <div
+          class="app-upload-exercises-slot-base app-upload-exercises-slot-choose full-center"
+        >
+          <mat-icon (click)="openUpload()">add_circle_outline</mat-icon>
+        </div>
+      </div>
+
+      <div class="full-center margin-top-20 margin-bottom-20">
+        <button
+          (click)="uploadFile()"
+          class="margin-top-10 app-upload-exercises-submit"
+        >
+          Upload
+        </button>
       </div>
     </div>
-    <button
-      (click)="uploadFile()"
-      class="margin-top-10 app-upload-exercises-submit"
-    >
-      Upload
-    </button>
   </div>
 </div>
