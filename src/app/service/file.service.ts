@@ -44,7 +44,7 @@ export class FileService {
 
   deleteFile(fileId: string): Observable<HttpResponse> {
     return this.http.delete<HttpResponse>(
-      `${environment.server}/delete/${fileId}`
+      `${environment.server}/exercises/${fileId}`
     );
   }
 }

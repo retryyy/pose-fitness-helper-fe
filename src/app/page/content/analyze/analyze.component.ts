@@ -1,24 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from 'src/app/common/popup/popup.component';
+import { ExerciseThumbnail } from 'src/app/interface/exercise';
 import { FileService } from 'src/app/service/file.service';
-
-export interface ExerciseThumbnail {
-  id: string;
-  thumbnail: string;
-  created: Date;
-  name: string;
-  type: string;
-}
-
-export interface ExerciseFile {
-  file: string;
-}
-export interface Exercise {
-  name: string;
-  type: string;
-  files: ExerciseFile[];
-}
 
 @Component({
   selector: 'app-analyze',
@@ -47,7 +31,9 @@ export class AnalyzeComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.fileService.deleteFile(id).subscribe(() => {
-          // this.docs = this.docs?.filter((doc) => doc.file_id !== id);
+          this.exercises = this.exercises?.filter(
+            (exercise) => exercise.id !== id
+          );
         });
       }
     });

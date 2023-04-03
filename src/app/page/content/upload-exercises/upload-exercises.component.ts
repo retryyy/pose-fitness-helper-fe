@@ -63,9 +63,12 @@ export class UploadExercisesComponent {
           type: this.exerciseForm.get('type')?.value,
           thumbnailIndex: this.thumbnailIndex,
         })
-        .subscribe(() => {
-          this._snackBar.open('Files were uploaded and analyzed!');
-          this.exerciseForm.reset();
+        .subscribe({
+          next: () => {
+            this._snackBar.open('Files were uploaded and analyzed!');
+            this.exerciseForm.reset();
+          },
+          error: () => this._snackBar.open('Something went wrong!'),
         });
     }
   }

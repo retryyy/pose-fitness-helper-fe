@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Exercise, ExerciseFile } from 'src/app/interface/exercise';
 import { FileService } from 'src/app/service/file.service';
-import { Exercise, ExerciseFile } from '../analyze.component';
 
 @Component({
   selector: 'app-analyze-exercise',
