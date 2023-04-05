@@ -22,10 +22,10 @@
           <mat-label>Select a type</mat-label>
           <mat-select formControlName="type" name="food">
             <mat-option
-              *ngFor="let exercise of exercises"
-              [value]="exercise.value"
+              *ngFor="let exercise of exerciseType | keyvalue"
+              [value]="exercise.key"
             >
-              {{ exercise.viewValue }}
+              {{ exercise.value }}
             </mat-option>
           </mat-select>
           <mat-error>Exercise type is required</mat-error>
@@ -33,7 +33,7 @@
       </div>
 
       <span class="app-upload-exercises-subtitle">Upload video</span>
-      <div class="app-upload-exercises-slot-container">
+      <div class="app-upload-exercises-slot-container margin-top-5">
         <div
           class="app-upload-exercises-slot-base app-upload-exercises-slot-img"
           *ngFor="let file of files; let i = index"

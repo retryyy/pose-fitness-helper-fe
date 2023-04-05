@@ -22,7 +22,7 @@
         {{ exercise?.name }}
       </div>
       <div class="app-analyze-card-info-type">
-        {{ exercise?.type }}
+        {{ exercise?.type | enum : exerciseType }}
       </div>
     </div>
     <div class="app-analyze-open">

@@ -14,3 +14,9 @@ export interface Exercise {
   type: string;
   files: ExerciseFile[];
 }
+
+export enum ExerciseType {
+  BENCH_PRESS = 'Bench press',
+  SQUAT = 'Squat',
+  SKULL_CRUSH = 'Skull crush',
+}

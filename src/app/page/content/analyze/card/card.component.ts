@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ExerciseThumbnail } from 'src/app/interface/exercise';
+import { ExerciseThumbnail, ExerciseType } from 'src/app/interface/exercise';
 
 @Component({
   selector: 'app-card',
@@ -10,6 +10,7 @@ import { ExerciseThumbnail } from 'src/app/interface/exercise';
 export class CardComponent {
   @Input() exercise?: ExerciseThumbnail;
   @Output() deleteDoc = new EventEmitter<string>();
+  exerciseType = ExerciseType;
 
   entered: boolean = false;
 

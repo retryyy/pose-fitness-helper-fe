@@ -40,6 +40,7 @@ import { PopupComponent } from './common/popup/popup.component';
 import { AnalyzeExerciseComponent } from './page/content/analyze/analyze-exercise/analyze-exercise.component';
 import { UploadExercisesComponent } from './page/content/upload-exercises/upload-exercises.component';
 import { UploadExercisesPreviewComponent } from './page/content/upload-exercises/upload-exercises-preview/upload-exercises-preview.component';
+import { EnumPipe } from './pipe/enum.pipe';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { UploadExercisesPreviewComponent } from './page/content/upload-exercises
     AnalyzeExerciseComponent,
     UploadExercisesComponent,
     UploadExercisesPreviewComponent,
+    EnumPipe,
   ],
   imports: [
     BrowserModule,

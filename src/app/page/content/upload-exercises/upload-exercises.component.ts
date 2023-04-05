@@ -4,11 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { UploadComponent } from '../upload/upload.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileService } from 'src/app/service/file.service';
-
-interface ExerciseSelect {
-  value: string;
-  viewValue: string;
-}
+import { ExerciseType } from 'src/app/interface/exercise';
 
 @Component({
   selector: 'app-upload-exercises',
@@ -16,16 +12,11 @@ interface ExerciseSelect {
   styleUrls: ['./upload-exercises.component.scss'],
 })
 export class UploadExercisesComponent {
+  exerciseType = ExerciseType;
   exerciseForm: FormGroup;
 
   files: string[] = [];
   thumbnailIndex: number = 0;
-
-  exercises: ExerciseSelect[] = [
-    { value: 'BENCH_PRESS', viewValue: 'Bench press' },
-    { value: 'SQUAT', viewValue: 'Squat' },
-    { value: 'SKULL_CRUSH', viewValue: 'Skull crush' },
-  ];
 
   constructor(
     private fileService: FileService,
