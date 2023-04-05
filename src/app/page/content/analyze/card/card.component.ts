@@ -10,7 +10,6 @@ import { ExerciseThumbnail, ExerciseType } from 'src/app/interface/exercise';
 export class CardComponent {
   @Input() exercise?: ExerciseThumbnail;
   @Output() deleteDoc = new EventEmitter<string>();
-  exerciseType = ExerciseType;
 
   entered: boolean = false;
 

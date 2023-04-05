@@ -21,9 +21,9 @@
       <div class="app-analyze-card-info-name margin-bottom-5">
         {{ exercise?.name }}
       </div>
-      <div class="app-analyze-card-info-type">
-        {{ exercise?.type | enum : exerciseType }}
-      </div>
+      <app-exercise-type
+        [exerciseTypeString]="exercise?.type"
+      ></app-exercise-type>
     </div>
     <div class="app-analyze-open">
       <mat-icon

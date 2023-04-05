@@ -10,9 +10,7 @@ import { FileService } from 'src/app/service/file.service';
 })
 export class AnalyzeExerciseComponent implements OnInit {
   fileId: string | null;
-  movements?: ExerciseFile[];
-  movementName?: string;
-  movementType?: string;
+  exercise?: Exercise;
 
   constructor(private route: ActivatedRoute, private fileService: FileService) {
     this.fileId = this.route.snapshot.paramMap.get('id');
@@ -20,11 +18,7 @@ export class AnalyzeExerciseComponent implements OnInit {
 
   ngOnInit(): void {
     this.fileService.loadFile(this.fileId!).subscribe((response) => {
-      const exerciseData: Exercise = response.data;
-
-      this.movements = exerciseData.files;
-      this.movementName = exerciseData.name;
-      this.movementType = exerciseData.type;
+      this.exercise = response.data;
     });
   }
 }

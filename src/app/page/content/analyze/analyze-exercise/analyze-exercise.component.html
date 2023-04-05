@@ -1,3 +1,24 @@
-<div *ngFor="let movement of movements" class="app-analyze-movement-frame">
-  <img src="data:image/gif;base64,{{ movement.file }}" />
+<div class="app-analyze-exercise-container">
+  <div class="app-analyze-exercise">
+    <div class="app-analyze-exercise-header">
+      <span class="app-analyze-exercise-header-title">
+        {{ exercise?.name }}
+      </span>
+      <app-exercise-type
+        [exerciseTypeString]="exercise?.type"
+      ></app-exercise-type>
+    </div>
+    <ng-container *ngFor="let movement of exercise?.files">
+      <mat-divider class="app-analyze-ezercise-divider"></mat-divider>
+      <div class="app-analyze-exercise-row">
+        <div class="app-analyze-exercise-left">
+          <img
+            src="data:image/gif;base64,{{ movement.file }}"
+            class="app-analyze-movement-frame"
+          />
+        </div>
+        <div class="app-analyze-exercise-right"></div>
+      </div>
+    </ng-container>
+  </div>
 </div>
