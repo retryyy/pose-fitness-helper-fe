@@ -1,9 +1,18 @@
 <div class="app-analyze-exercise-container">
+  <mat-icon class="app-analyze-exercise-back" (click)="navigateBack()">
+    arrow_circle_left
+  </mat-icon>
+
   <div class="app-analyze-exercise">
     <div class="app-analyze-exercise-header">
-      <span class="app-analyze-exercise-header-title">
-        {{ exercise?.name }}
-      </span>
+      <div class="app-analyze-exercise-space">
+        <span class="app-analyze-exercise-header-title">
+          {{ exercise?.name }}
+        </span>
+        <span class="app-analyze-exercise-header-date">
+          {{ exercise?.created | date : "yyyy/MM/dd hh:mm:ss" }}
+        </span>
+      </div>
       <app-exercise-type
         [exerciseTypeString]="exercise?.type"
       ></app-exercise-type>

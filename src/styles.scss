@@ -26,10 +26,9 @@ button:disabled,
 button[disabled] {
   background-color: #cccccc;
   color: #666666;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: default;
 }
-
-//////
 
 .margin-bottom-0 {
   margin-bottom: 0 !important;

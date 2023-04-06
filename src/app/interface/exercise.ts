@@ -12,6 +12,7 @@ export interface ExerciseFile {
 export interface Exercise {
   name: string;
   type: string;
+  created: Date;
   files: ExerciseFile[];
 }
 

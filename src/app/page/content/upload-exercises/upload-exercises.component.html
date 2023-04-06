@@ -58,6 +58,7 @@
         <button
           (click)="uploadFile()"
           class="margin-top-10 app-upload-exercises-submit"
+          [disabled]="!files.length"
         >
           Upload
         </button>

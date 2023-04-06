@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Exercise, ExerciseFile } from 'src/app/interface/exercise';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Exercise } from 'src/app/interface/exercise';
 import { FileService } from 'src/app/service/file.service';
 
 @Component({
@@ -12,7 +12,11 @@ export class AnalyzeExerciseComponent implements OnInit {
   fileId: string | null;
   exercise?: Exercise;
 
-  constructor(private route: ActivatedRoute, private fileService: FileService) {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private fileService: FileService
+  ) {
     this.fileId = this.route.snapshot.paramMap.get('id');
   }
 
@@ -20,5 +24,9 @@ export class AnalyzeExerciseComponent implements OnInit {
     this.fileService.loadFile(this.fileId!).subscribe((response) => {
       this.exercise = response.data;
     });
+  }
+
+  navigateBack(): void {
+    this.router.navigateByUrl('/analyze');
   }
 }
