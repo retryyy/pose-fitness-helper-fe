@@ -8,6 +8,7 @@ export interface ExerciseThumbnail {
 
 export interface ExerciseFile {
   file: string;
+  view: string;
 }
 export interface Exercise {
   name: string;

@@ -4,6 +4,11 @@ import { MatStepper } from '@angular/material/stepper';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { FileService } from 'src/app/service/file.service';
 
+export interface VideoUpload {
+  view: string;
+  video: string;
+}
+
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -24,6 +29,8 @@ export class UploadComponent {
   end?: number;
 
   trimmedVideo?: string;
+
+  direction?: string;
 
   constructor(
     private fileService: FileService,
@@ -84,6 +91,9 @@ export class UploadComponent {
   }
 
   loadVideo(): void {
-    this.dialogRef.close(this.trimmedVideo);
+    this.dialogRef.close({
+      view: this.direction,
+      video: this.trimmedVideo,
+    } as VideoUpload);
   }
 }

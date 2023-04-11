@@ -36,10 +36,10 @@
       <div class="app-upload-exercises-slot-container margin-top-5">
         <div
           class="app-upload-exercises-slot-base app-upload-exercises-slot-img"
-          *ngFor="let file of files; let i = index"
+          *ngFor="let file of uploads; let i = index"
         >
           <app-upload-exercises-preview
-            [file]="file"
+            [file]="file.video"
             [index]="i"
             [thumbnail]="i === thumbnailIndex"
             (deleteGifEvent)="deleteGif($event)"
@@ -58,7 +58,7 @@
         <button
           (click)="uploadFile()"
           class="margin-top-10 app-upload-exercises-submit"
-          [disabled]="!files.length"
+          [disabled]="!uploads.length"
         >
           Upload
         </button>

@@ -113,9 +113,17 @@
           />
         </div>
 
+        <div class="margin-top-10">Choose direction</div>
+        <mat-radio-group [(ngModel)]="direction">
+          <mat-radio-button value="front">Front view</mat-radio-button>
+          <mat-radio-button value="side">Side view</mat-radio-button>
+        </mat-radio-group>
+
         <div class="app-upload-buttons">
           <button mat-button matStepperPrevious>Previous</button>
-          <button mat-button (click)="loadVideo()">Load</button>
+          <button mat-button [disabled]="!direction" (click)="loadVideo()">
+            Load
+          </button>
         </div>
       </div>
     </mat-step>

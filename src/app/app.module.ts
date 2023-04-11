@@ -23,6 +23,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
 
@@ -83,6 +84,7 @@ import { ExerciseTypeComponent } from './page/common/exercise-type/exercise-type
     MatMenuModule,
     MatTooltipModule,
     MatSelectModule,
+    MatRadioModule,
 
     NgxDropzoneModule,
   ],

@@ -17,12 +17,13 @@
         [exerciseTypeString]="exercise?.type"
       ></app-exercise-type>
     </div>
-    <ng-container *ngFor="let movement of exercise?.files">
+    <ng-container *ngFor="let files of exercise?.files">
       <mat-divider class="app-analyze-ezercise-divider"></mat-divider>
+      <div class="app-analyze-exercise-view">{{ files.view }} view</div>
       <div class="app-analyze-exercise-row">
         <div class="app-analyze-exercise-left">
           <img
-            src="data:image/gif;base64,{{ movement.file }}"
+            src="data:image/gif;base64,{{ files.file }}"
             class="app-analyze-movement-frame"
           />
         </div>

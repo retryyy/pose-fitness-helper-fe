@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { UploadComponent } from '../upload/upload.component';
+import { UploadComponent, VideoUpload } from '../upload/upload.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileService } from 'src/app/service/file.service';
 import { ExerciseType } from 'src/app/interface/exercise';
@@ -15,7 +15,7 @@ export class UploadExercisesComponent {
   exerciseType = ExerciseType;
   exerciseForm: FormGroup;
 
-  files: string[] = [];
+  uploads: VideoUpload[] = [];
   thumbnailIndex: number = 0;
 
   constructor(
@@ -33,15 +33,15 @@ export class UploadExercisesComponent {
   protected openUpload(): void {
     const dialogRef = this.dialog.open(UploadComponent);
 
-    dialogRef.afterClosed().subscribe((result: string) => {
+    dialogRef.afterClosed().subscribe((result: VideoUpload) => {
       if (result) {
-        this.files.push(result);
+        this.uploads.push(result);
       }
     });
   }
 
   deleteGif(index: number): void {
-    this.files.splice(index, 1);
+    this.uploads.splice(index, 1);
     this.thumbnailIndex = 0;
   }
 
@@ -52,10 +52,10 @@ export class UploadExercisesComponent {
   uploadFile(): void {
     this.exerciseForm.markAllAsTouched();
 
-    if (this.exerciseForm.valid && this.files.length) {
-      const gifBlobs = this.files.map((file) => {
-        const gifBlob = this.dataURItoBlob(file);
-        return new File([gifBlob], 'lel.gif', {
+    if (this.exerciseForm.valid && this.uploads.length) {
+      const gifBlobs = this.uploads.map((upload) => {
+        const gifBlob = this.dataURItoBlob(upload.video);
+        return new File([gifBlob], `${upload.view}.gif`, {
           type: 'application/gif',
         });
       });
