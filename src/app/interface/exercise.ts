@@ -6,9 +6,15 @@ export interface ExerciseThumbnail {
   type: string;
 }
 
+export interface ExerciseAnalyze {
+  score: number;
+  correct: string[];
+  incorrect: string[];
+}
 export interface ExerciseFile {
   file: string;
   view: string;
+  analyze: ExerciseAnalyze;
 }
 export interface Exercise {
   name: string;
