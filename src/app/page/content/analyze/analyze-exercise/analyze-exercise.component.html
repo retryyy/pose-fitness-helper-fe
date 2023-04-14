@@ -4,58 +4,64 @@
   </mat-icon>
 
   <div class="app-analyze-exercise">
-    <div class="app-analyze-exercise-header">
-      <div class="app-analyze-exercise-space">
-        <span class="app-analyze-exercise-header-title">
-          {{ exercise?.name }}
-        </span>
-        <span class="app-analyze-exercise-header-date">
-          {{ exercise?.created | date : "yyyy/MM/dd hh:mm:ss" }}
-        </span>
-      </div>
-      <app-exercise-type
-        [exerciseTypeString]="exercise?.type"
-      ></app-exercise-type>
+    <div *ngIf="loading" class="app-analyze-exercise-loader full-center">
+      <mat-spinner></mat-spinner>
     </div>
-    <ng-container *ngFor="let files of exercise?.files">
-      <mat-divider class="app-analyze-exercise-divider"></mat-divider>
-      <div class="app-analyze-exercise-view">{{ files.view }} view</div>
-      <div class="app-analyze-exercise-row">
-        <div class="app-analyze-exercise-left">
-          <img
-            src="data:image/gif;base64,{{ files.file }}"
-            class="app-analyze-movement-frame"
-          />
+
+    <ng-container *ngIf="!loading">
+      <div class="app-analyze-exercise-header">
+        <div class="app-analyze-exercise-space">
+          <span class="app-analyze-exercise-header-title">
+            {{ exercise?.name }}
+          </span>
+          <span class="app-analyze-exercise-header-date">
+            {{ exercise?.created | date : "yyyy/MM/dd hh:mm:ss" }}
+          </span>
         </div>
-        <div class="app-analyze-exercise-right full-center">
-          <div class="app-analyze-exercise-score-container full-center">
-            <div class="app-analyze-exercise-score-text">SCORE</div>
-            <div class="app-analyze-exercise-score">
-              {{ files.analyze.score }}
+        <app-exercise-type
+          [exerciseTypeString]="exercise?.type"
+        ></app-exercise-type>
+      </div>
+      <ng-container *ngFor="let files of exercise?.files">
+        <mat-divider class="app-analyze-exercise-divider"></mat-divider>
+        <div class="app-analyze-exercise-view">{{ files.view }} view</div>
+        <div class="app-analyze-exercise-row">
+          <div class="app-analyze-exercise-left">
+            <img
+              src="data:image/gif;base64,{{ files.file }}"
+              class="app-analyze-movement-frame"
+            />
+          </div>
+          <div class="app-analyze-exercise-right full-center">
+            <div class="app-analyze-exercise-score-container full-center">
+              <div class="app-analyze-exercise-score-text">SCORE</div>
+              <div class="app-analyze-exercise-score">
+                {{ files.analyze.score }}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="app-analyze-exercise-feedback">
-        <div class="app-analyze-exercise-feedback-correct">
-          <div
-            *ngFor="let correct of files.analyze.correct"
-            class="app-analyze-exercise-feedback-line"
-          >
-            <mat-icon>done</mat-icon>
-            {{ correct }}
+        <div class="app-analyze-exercise-feedback">
+          <div class="app-analyze-exercise-feedback-correct">
+            <div
+              *ngFor="let correct of files.analyze.correct"
+              class="app-analyze-exercise-feedback-line"
+            >
+              <mat-icon>done</mat-icon>
+              {{ correct }}
+            </div>
+          </div>
+          <div class="app-analyze-exercise-feedback-incorrect">
+            <div
+              *ngFor="let incorrect of files.analyze.incorrect"
+              class="app-analyze-exercise-feedback-line"
+            >
+              <mat-icon>clear</mat-icon>
+              {{ incorrect }}
+            </div>
           </div>
         </div>
-        <div class="app-analyze-exercise-feedback-incorrect">
-          <div
-            *ngFor="let incorrect of files.analyze.incorrect"
-            class="app-analyze-exercise-feedback-line"
-          >
-            <mat-icon>clear</mat-icon>
-            {{ incorrect }}
-          </div>
-        </div>
-      </div>
+      </ng-container>
     </ng-container>
   </div>
 </div>

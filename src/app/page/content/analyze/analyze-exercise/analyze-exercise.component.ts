@@ -12,6 +12,8 @@ export class AnalyzeExerciseComponent implements OnInit {
   fileId: string | null;
   exercise?: Exercise;
 
+  loading: boolean = true;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -23,6 +25,7 @@ export class AnalyzeExerciseComponent implements OnInit {
   ngOnInit(): void {
     this.fileService.loadFile(this.fileId!).subscribe((response) => {
       this.exercise = response.data;
+      this.loading = false;
     });
   }
 

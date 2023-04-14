@@ -32,8 +32,10 @@ export class FileService {
     );
   }
 
-  loadFiles(): Observable<HttpResponse> {
-    return this.http.get<HttpResponse>(`${environment.server}/exercises`);
+  loadFiles(exerciseType: string): Observable<HttpResponse> {
+    return this.http.get<HttpResponse>(`${environment.server}/exercises`, {
+      params: { exerciseType },
+    });
   }
 
   loadFile(exerciseId: string): Observable<HttpResponse> {

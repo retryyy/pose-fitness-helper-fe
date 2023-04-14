@@ -35,14 +35,14 @@
       }
 
       .app-choose-type-card-img {
-        background-color: yellow;
         height: 250px;
 
         background-size: contain;
       }
     }
     .app-choose-type-card:hover {
-      box-shadow: 0px 0px 3px 3px greenyellow;
+      box-shadow: 0px 0px 3px 3px rgba(210, 105, 30, 0.7);
+      color: rgba(210, 105, 30, 0.7);
       opacity: 1;
       transform: scale(1.04);
 

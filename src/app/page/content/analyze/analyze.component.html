@@ -1,3 +1,11 @@
+<mat-icon
+  *ngIf="chosenExercise"
+  class="app-analyze-back"
+  (click)="navigateBack()"
+>
+  arrow_circle_left
+</mat-icon>
+
 <app-choose-type
   *ngIf="!chosenExercise"
   (exerciseChange)="setExerciseType($event)"

@@ -9,3 +9,14 @@
 .app-analyze-card {
   margin: 15px;
 }
+
+.app-analyze-back {
+  margin-left: 25px;
+  margin-top: 15px;
+
+  transform: scale(1.8);
+  color: rgba(255, 255, 255, 0.5);
+}
+.app-analyze-back:hover {
+  color: rgba(255, 255, 255, 0.7);
+}

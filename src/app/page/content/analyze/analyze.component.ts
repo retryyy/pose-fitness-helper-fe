@@ -18,9 +18,14 @@ export class AnalyzeComponent {
   setExerciseType(exerciseType: string): void {
     this.chosenExercise = exerciseType;
 
-    this.fileService.loadFiles().subscribe((response) => {
+    this.fileService.loadFiles(this.chosenExercise).subscribe((response) => {
       this.exercises = response.data;
     });
+  }
+
+  navigateBack(): void {
+    this.exercises = [];
+    this.chosenExercise = undefined;
   }
 
   deleteDocById(id: string): void {
