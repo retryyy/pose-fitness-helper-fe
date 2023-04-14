@@ -1,0 +1,20 @@
+<div class="app-choose-type-container">
+  <div class="app-choose-type-subcontainer">
+    <div
+      *ngFor="let exercise of exerciseType | keyvalue"
+      class="app-choose-type-card"
+      (click)="setType(exercise.key)"
+    >
+      <div class="app-choose-type-card-title">
+        {{ exercise.value }}
+      </div>
+      <div
+        class="app-choose-type-card-img"
+        [ngStyle]="{
+          'background-image':
+            'url(../../../../../assets/' + exercise.key + '.jpg)'
+        }"
+      ></div>
+    </div>
+  </div>
+</div>

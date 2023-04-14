@@ -25,6 +25,7 @@ export interface Exercise {
 
 export enum ExerciseType {
   BENCH_PRESS = 'Bench press',
+  DUMBBELL_CHEST_PRESS = 'Dumbbell chest press',
   SQUAT = 'Squat',
-  SKULL_CRUSH = 'Skull crush',
+  SKULL_CRUSHER = 'Skull crusher',
 }

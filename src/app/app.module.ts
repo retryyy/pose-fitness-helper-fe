@@ -43,6 +43,7 @@ import { UploadExercisesComponent } from './page/content/upload-exercises/upload
 import { UploadExercisesPreviewComponent } from './page/content/upload-exercises/upload-exercises-preview/upload-exercises-preview.component';
 import { EnumPipe } from './pipe/enum.pipe';
 import { ExerciseTypeComponent } from './page/common/exercise-type/exercise-type.component';
+import { ChooseTypeComponent } from './page/content/analyze/choose-type/choose-type.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ExerciseTypeComponent } from './page/common/exercise-type/exercise-type
     UploadExercisesPreviewComponent,
     EnumPipe,
     ExerciseTypeComponent,
+    ChooseTypeComponent,
   ],
   imports: [
     BrowserModule,

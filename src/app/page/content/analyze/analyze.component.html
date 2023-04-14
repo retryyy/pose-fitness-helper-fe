@@ -1,4 +1,9 @@
-<div class="app-analyze-container">
+<app-choose-type
+  *ngIf="!chosenExercise"
+  (exerciseChange)="setExerciseType($event)"
+></app-choose-type>
+
+<div *ngIf="chosenExercise" class="app-analyze-container">
   <ng-container *ngFor="let exercise of exercises">
     <app-card
       (deleteDoc)="deleteDocById($event)"

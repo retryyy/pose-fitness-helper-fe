@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from 'src/app/common/popup/popup.component';
 import { ExerciseThumbnail } from 'src/app/interface/exercise';
@@ -9,12 +9,15 @@ import { FileService } from 'src/app/service/file.service';
   templateUrl: './analyze.component.html',
   styleUrls: ['./analyze.component.scss'],
 })
-export class AnalyzeComponent implements OnInit {
+export class AnalyzeComponent {
+  chosenExercise?: string;
   exercises?: ExerciseThumbnail[];
 
   constructor(private fileService: FileService, public dialog: MatDialog) {}
 
-  ngOnInit(): void {
+  setExerciseType(exerciseType: string): void {
+    this.chosenExercise = exerciseType;
+
     this.fileService.loadFiles().subscribe((response) => {
       this.exercises = response.data;
     });
