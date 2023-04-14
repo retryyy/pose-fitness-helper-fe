@@ -46,9 +46,12 @@
 
 .app-analyze-card-img {
   height: 200px;
+  min-height: 200px;
   display: flex;
   justify-content: center;
   background-color: black;
+
+  overflow: hidden;
 
   img {
     height: 100%;
