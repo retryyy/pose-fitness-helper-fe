@@ -53,7 +53,9 @@ export class UploadExercisesComponent {
     this.exerciseForm.markAllAsTouched();
 
     if (this.exerciseForm.valid && this.uploads.length) {
+      let points: object[] = [];
       const gifBlobs = this.uploads.map((upload) => {
+        points.push(upload.points);
         const gifBlob = this.dataURItoBlob(upload.video);
         return new File([gifBlob], `${upload.view}.gif`, {
           type: 'application/gif',
@@ -64,6 +66,7 @@ export class UploadExercisesComponent {
         .uploadFiles(gifBlobs, {
           name: this.exerciseForm.get('name')?.value,
           type: this.exerciseForm.get('type')?.value,
+          points: points,
           thumbnailIndex: this.thumbnailIndex,
         })
         .subscribe({

@@ -7,6 +7,7 @@ import { FileService } from 'src/app/service/file.service';
 export interface VideoUpload {
   view: string;
   video: string;
+  points: {};
 }
 
 @Component({
@@ -29,6 +30,7 @@ export class UploadComponent {
   end?: number;
 
   trimmedVideo?: string;
+  points?: {};
 
   direction?: string;
 
@@ -55,7 +57,8 @@ export class UploadComponent {
       this.loading = true;
       this.fileService.trimFile(this.file, this.start, this.end!).subscribe({
         next: (res) => {
-          this.trimmedVideo = res.data;
+          this.trimmedVideo = res.data.movement;
+          this.points = res.data.points;
           this.myStepper?.next();
           this.loading = false;
         },
@@ -71,6 +74,7 @@ export class UploadComponent {
   removeFile(): void {
     this.file = undefined;
     this.trimmedVideo = undefined;
+    this.points = undefined;
     this.url = undefined;
     this.myStepper?.reset();
   }
@@ -94,6 +98,7 @@ export class UploadComponent {
     this.dialogRef.close({
       view: this.direction,
       video: this.trimmedVideo,
+      points: this.points,
     } as VideoUpload);
   }
 }
