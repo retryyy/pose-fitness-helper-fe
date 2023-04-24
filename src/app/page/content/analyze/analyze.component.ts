@@ -12,14 +12,17 @@ import { FileService } from 'src/app/service/file.service';
 export class AnalyzeComponent {
   chosenExercise?: string;
   exercises?: ExerciseThumbnail[];
+  loading: boolean = false;
 
   constructor(private fileService: FileService, public dialog: MatDialog) {}
 
   setExerciseType(exerciseType: string): void {
     this.chosenExercise = exerciseType;
+    this.loading = true;
 
     this.fileService.loadFiles(this.chosenExercise).subscribe((response) => {
       this.exercises = response.data;
+      this.loading = false;
     });
   }
 

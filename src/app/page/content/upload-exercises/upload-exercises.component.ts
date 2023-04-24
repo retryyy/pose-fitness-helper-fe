@@ -73,8 +73,10 @@ export class UploadExercisesComponent {
           next: () => {
             this._snackBar.open('Files were uploaded and analyzed!');
             this.exerciseForm.reset();
+            this.thumbnailIndex = 0;
+            this.uploads = [];
           },
-          error: () => this._snackBar.open('Something went wrong!'),
+          error: (err) => this._snackBar.open(err.error.message),
         });
     }
   }

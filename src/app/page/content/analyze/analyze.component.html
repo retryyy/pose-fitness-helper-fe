@@ -11,12 +11,26 @@
   (exerciseChange)="setExerciseType($event)"
 ></app-choose-type>
 
-<div *ngIf="chosenExercise" class="app-analyze-container">
-  <ng-container *ngFor="let exercise of exercises">
+<div *ngIf="chosenExercise && !loading" class="app-analyze-container">
+  <ng-container *ngIf="exercises?.length">
     <app-card
+      *ngFor="let exercise of exercises"
       (deleteDoc)="deleteDocById($event)"
       class="app-analyze-card"
       [exercise]="exercise"
     ></app-card>
   </ng-container>
+  <ng-container *ngIf="!exercises?.length">
+    <div class="app-analyze-content-container">
+      <span class="app-analyze-no-data">
+        No exercise found in this category
+      </span>
+    </div>
+  </ng-container>
 </div>
+
+<ng-container *ngIf="loading">
+  <div class="app-analyze-content-container">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-container>

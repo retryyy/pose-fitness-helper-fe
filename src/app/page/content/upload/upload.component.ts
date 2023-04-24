@@ -74,6 +74,7 @@ export class UploadComponent {
           // TODO
           this.loading = false;
           console.log(err);
+          this._snackBar.open(err.error.message);
         },
       });
     }

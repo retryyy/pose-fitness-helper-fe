@@ -20,3 +20,24 @@
 .app-analyze-back:hover {
   color: rgba(255, 255, 255, 0.7);
 }
+
+.app-analyze-content-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  mat-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .app-analyze-no-data {
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+  }
+}

@@ -71,3 +71,8 @@ mat-icon {
 mat-icon:hover {
   cursor: pointer;
 }
+
+mat-progress-spinner circle,
+mat-spinner circle {
+  stroke: rgba(210, 105, 30) !important;
+}
