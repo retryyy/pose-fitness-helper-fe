@@ -6,9 +6,9 @@
 .app-upload-exercises {
   width: 660px;
   min-width: 660px;
-  height: 800px;
+  height: max-content;
+  min-height: 100%;
   background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 5px;
   overflow-y: auto;
 
   display: flex;
