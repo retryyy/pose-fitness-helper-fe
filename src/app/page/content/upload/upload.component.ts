@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatStepper } from '@angular/material/stepper';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
 import { FileService } from 'src/app/service/file.service';
@@ -36,19 +37,26 @@ export class UploadComponent {
 
   constructor(
     private fileService: FileService,
+    private _snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<UploadComponent>
   ) {}
 
   onSelect(event: NgxDropzoneChangeEvent): void {
-    this.loading = true;
-    this.file = event.addedFiles[0];
+    if (event.addedFiles.length) {
+      this.loading = true;
+      this.file = event.addedFiles[0];
 
-    if (this.file) {
-      var reader = new FileReader();
-      reader.readAsDataURL(this.file);
-      reader.onload = (event) => {
-        this.url = (<FileReader>event.target).result as string;
-      };
+      if (this.file) {
+        var reader = new FileReader();
+        reader.readAsDataURL(this.file);
+        reader.onload = (event) => {
+          this.url = (<FileReader>event.target).result as string;
+        };
+      }
+    } else {
+      this._snackBar.open(
+        'Maximum a 30MB MP4 video is accepted to be uploaded!'
+      );
     }
   }
 

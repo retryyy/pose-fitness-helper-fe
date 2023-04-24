@@ -92,7 +92,7 @@ import { ChooseTypeComponent } from './page/content/analyze/choose-type/choose-t
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 3000 } },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 4000 } },
   ],
   bootstrap: [AppComponent],
 })

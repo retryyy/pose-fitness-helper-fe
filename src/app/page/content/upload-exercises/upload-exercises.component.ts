@@ -25,13 +25,13 @@ export class UploadExercisesComponent {
     private _snackBar: MatSnackBar
   ) {
     this.exerciseForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(10)]],
+      name: ['', [Validators.required, Validators.minLength(5)]],
       type: ['', Validators.required],
     });
   }
 
   protected openUpload(): void {
-    const dialogRef = this.dialog.open(UploadComponent);
+    const dialogRef = this.dialog.open(UploadComponent, { disableClose: true });
 
     dialogRef.afterClosed().subscribe((result: VideoUpload) => {
       if (result) {

@@ -9,10 +9,15 @@ import {
 import { catchError, EMPTY, Observable, throwError } from 'rxjs';
 import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private _snackBar: MatSnackBar
+  ) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -33,6 +38,12 @@ export class TokenInterceptor implements HttpInterceptor {
             this.userService.removeToken();
             this.router.navigateByUrl('/login');
             return EMPTY;
+          } else if (err.status === 500) {
+            this._snackBar.open(err.error.message);
+          } else if (err.status === 0) {
+            this._snackBar.open(
+              'Error occured during the connection to the backend!'
+            );
           }
         }
         return throwError(() => err);

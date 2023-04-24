@@ -26,14 +26,17 @@
             *ngIf="!file"
             (change)="onSelect($event)"
             [multiple]="false"
-            accept="video/*"
+            accept="video/mp4"
+            [maxFileSize]="30000000"
           >
-            Drag-and-drop a video, or click and choose one!
+            Drag-and-drop an mp4 video, or click and choose one! Max file size
+            is 30MB.
           </div>
 
           <video
             [src]="url"
             *ngIf="file"
+            type="video/mp4"
             (durationchange)="setDuration($event)"
             (timeupdate)="onTimeUpdate($event)"
             controls

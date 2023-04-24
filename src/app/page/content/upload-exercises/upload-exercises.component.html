@@ -14,7 +14,12 @@
         <span class="app-upload-exercises-subtitle">Exercise name</span>
         <mat-form-field appearance="outline">
           <input matInput formControlName="name" />
-          <mat-error>Exercise name is required</mat-error>
+          <mat-error *ngIf="exerciseForm.get('name')?.hasError('required')">
+            Exercise name is required
+          </mat-error>
+          <mat-error *ngIf="exerciseForm.get('name')?.hasError('minlength')">
+            Minimum length should be 5 letters
+          </mat-error>
         </mat-form-field>
 
         <span class="app-upload-exercises-subtitle">Exercise type</span>
