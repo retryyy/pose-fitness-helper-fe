@@ -55,7 +55,22 @@ export class FileService {
     fileId: string
   ): Observable<HttpResponse> {
     return this.http.delete<HttpResponse>(
-      `${environment.server}/exercises/${exerciseId}/file/${fileId}`
+      `${environment.server}/exercises/${exerciseId}/files/${fileId}`
+    );
+  }
+
+  addExerciseFile(
+    exerciseId: string,
+    file: File,
+    body: object
+  ): Observable<HttpResponse> {
+    let formData: FormData = new FormData();
+    formData.append('file', file);
+    formData.append('body', JSON.stringify(body));
+
+    return this.http.post<HttpResponse>(
+      `${environment.server}/exercises/${exerciseId}/files`,
+      formData
     );
   }
 }

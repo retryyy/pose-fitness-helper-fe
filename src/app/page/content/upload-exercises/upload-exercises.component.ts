@@ -5,6 +5,7 @@ import { UploadComponent, VideoUpload } from '../upload/upload.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileService } from 'src/app/service/file.service';
 import { ExerciseType } from 'src/app/interface/exercise';
+import { dataURItoBlob } from 'src/app/util/string-to-file';
 
 @Component({
   selector: 'app-upload-exercises',
@@ -56,7 +57,7 @@ export class UploadExercisesComponent {
       let points: object[] = [];
       const gifBlobs = this.uploads.map((upload) => {
         points.push(upload.points);
-        const gifBlob = this.dataURItoBlob(upload.video);
+        const gifBlob = dataURItoBlob(upload.video);
         return new File([gifBlob], `${upload.view}.gif`, {
           type: 'application/gif',
         });
@@ -79,15 +80,5 @@ export class UploadExercisesComponent {
           error: (err) => this._snackBar.open(err.error.message),
         });
     }
-  }
-
-  private dataURItoBlob(dataURI: string): Blob {
-    const byteString = window.atob(dataURI);
-    const arrayBuffer = new ArrayBuffer(byteString.length);
-    const int8Array = new Uint8Array(arrayBuffer);
-    for (let i = 0; i < byteString.length; i++) {
-      int8Array[i] = byteString.charCodeAt(i);
-    }
-    return new Blob([int8Array], { type: 'image/gif' });
   }
 }

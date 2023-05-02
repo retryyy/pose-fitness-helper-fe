@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PopupComponent } from 'src/app/common/popup/popup.component';
 import { Exercise } from 'src/app/interface/exercise';
 import { FileService } from 'src/app/service/file.service';
+import { UploadComponent, VideoUpload } from '../../upload/upload.component';
+import { dataURItoBlob } from 'src/app/util/string-to-file';
 
 @Component({
   selector: 'app-analyze-exercise',
@@ -54,6 +56,25 @@ export class AnalyzeExerciseComponent implements OnInit {
       if (result) {
         this.fileService
           .deleteExerciseFile(this.exerciseId!, fileId)
+          .subscribe(() => this.loadExercise());
+      }
+    });
+  }
+
+  protected addExerciseFile(): void {
+    const dialogRef = this.dialog.open(UploadComponent, { disableClose: true });
+
+    dialogRef.afterClosed().subscribe((result: VideoUpload) => {
+      if (result) {
+        const gifBlob = dataURItoBlob(result.video);
+        const file = new File([gifBlob], `${result.view}.gif`, {
+          type: 'application/gif',
+        });
+        this.fileService
+          .addExerciseFile(this.exerciseId!, file, {
+            points: result.points,
+            view: result.view,
+          })
           .subscribe(() => this.loadExercise());
       }
     });

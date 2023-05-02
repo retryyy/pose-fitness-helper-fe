@@ -10,17 +10,26 @@
 
     <ng-container *ngIf="!loading">
       <div class="app-analyze-exercise-header">
-        <div class="app-analyze-exercise-space">
-          <span class="app-analyze-exercise-header-title">
-            {{ exercise?.name }}
-          </span>
-          <span class="app-analyze-exercise-header-date">
-            {{ exercise?.created | date : "yyyy/MM/dd HH:mm:ss" }}
-          </span>
+        <div class="app-analyze-exercise-space full-center">
+          <div>
+            <span class="app-analyze-exercise-header-title">
+              {{ exercise?.name }}
+            </span>
+            <span class="app-analyze-exercise-header-date">
+              {{ exercise?.created | date : "yyyy/MM/dd HH:mm:ss" }}
+            </span>
+            <app-exercise-type
+              [exerciseTypeString]="exercise?.type"
+            ></app-exercise-type>
+          </div>
+
+          <mat-icon
+            class="app-analyze-exercise-header-add"
+            (click)="addExerciseFile()"
+            matTooltip="Add video to exercise"
+            >add_circle_outline</mat-icon
+          >
         </div>
-        <app-exercise-type
-          [exerciseTypeString]="exercise?.type"
-        ></app-exercise-type>
       </div>
       <ng-container *ngFor="let files of exercise?.files">
         <div class="app-analyze-exercise-movement-container">
@@ -29,6 +38,7 @@
             <mat-icon
               fontIcon="delete"
               (click)="deleteExerciseFile(files.file_id)"
+              matTooltip="Delete video"
             ></mat-icon>
           </div>
           <div class="app-analyze-exercise-row">
