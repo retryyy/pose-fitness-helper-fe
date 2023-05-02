@@ -25,7 +25,11 @@
       <ng-container *ngFor="let files of exercise?.files">
         <div class="app-analyze-exercise-movement-container">
           <div class="app-analyze-exercise-view full-center">
-            {{ files.view }} view
+            <div>{{ files.view }} view</div>
+            <mat-icon
+              fontIcon="delete"
+              (click)="deleteExerciseFile(files.file_id)"
+            ></mat-icon>
           </div>
           <div class="app-analyze-exercise-row">
             <div class="app-analyze-exercise-left">

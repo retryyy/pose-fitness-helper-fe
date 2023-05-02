@@ -1,19 +1,17 @@
 .app-choose-type-container {
   height: 100%;
 
-  display: flex;
-  align-items: center;
-
   .app-choose-type-subcontainer {
-    height: 330px;
-    padding: 15px 5px;
+    padding: 15px 15px;
 
     display: flex;
+    flex-flow: wrap;
 
     .app-choose-type-card {
       width: 250px;
       min-width: 250px;
-      margin: 0 10px;
+      height: 325px;
+      margin: 15px;
       border-radius: 10px;
 
       box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.3);

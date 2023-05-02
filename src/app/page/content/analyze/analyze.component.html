@@ -15,7 +15,7 @@
   <ng-container *ngIf="exercises?.length">
     <app-card
       *ngFor="let exercise of exercises"
-      (deleteDoc)="deleteDocById($event)"
+      (deleteDoc)="deleteExercise($event)"
       class="app-analyze-card"
       [exercise]="exercise"
     ></app-card>

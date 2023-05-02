@@ -32,21 +32,30 @@ export class FileService {
     );
   }
 
-  loadFiles(exerciseType: string): Observable<HttpResponse> {
+  loadExercises(exerciseType: string): Observable<HttpResponse> {
     return this.http.get<HttpResponse>(`${environment.server}/exercises`, {
       params: { exerciseType },
     });
   }
 
-  loadFile(exerciseId: string): Observable<HttpResponse> {
+  loadExercise(exerciseId: string): Observable<HttpResponse> {
     return this.http.get<HttpResponse>(
       `${environment.server}/exercises/${exerciseId}`
     );
   }
 
-  deleteFile(fileId: string): Observable<HttpResponse> {
+  deleteExercise(exerciseId: string): Observable<HttpResponse> {
     return this.http.delete<HttpResponse>(
-      `${environment.server}/exercises/${fileId}`
+      `${environment.server}/exercises/${exerciseId}`
+    );
+  }
+
+  deleteExerciseFile(
+    exerciseId: string,
+    fileId: string
+  ): Observable<HttpResponse> {
+    return this.http.delete<HttpResponse>(
+      `${environment.server}/exercises/${exerciseId}/file/${fileId}`
     );
   }
 }

@@ -12,6 +12,7 @@ export interface ExerciseAnalyze {
   incorrect: string[];
 }
 export interface ExerciseFile {
+  file_id: string;
   file: string;
   view: string;
   analyze: ExerciseAnalyze;
