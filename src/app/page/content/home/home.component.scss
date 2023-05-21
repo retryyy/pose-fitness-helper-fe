@@ -1,0 +1,62 @@
+.app-home-container {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+
+  .app-home-narrow-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 900px;
+    max-width: 900px;
+
+    .app-home-exercise-type {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding-left: 10px;
+      padding-right: 10px;
+
+      .app-home-exercise-type-1 {
+        width: 45%;
+        color: white;
+
+        .app-home-exercise-type-name {
+          font-weight: 450;
+          font-size: 22px;
+        }
+        .app-home-exercise-type-muscles {
+          font-weight: 300;
+        }
+      }
+      .app-home-exercise-type-2 {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+
+        img {
+          height: 100px;
+          margin-top: 10px;
+          margin-bottom: 10px;
+
+          border-radius: 2px;
+        }
+      }
+      .app-home-exercise-type-3 {
+        width: 25%;
+        display: flex;
+        justify-content: end;
+      }
+    }
+    .app-home-exercise-type:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .mat-divider {
+      border-top-width: 2px;
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+}

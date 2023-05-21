@@ -1,1 +1,21 @@
-<p>home works!</p>
+<div class="app-home-container">
+  <div class="app-home-narrow-container">
+    <ng-container *ngFor="let exercise of exerciseType | keyvalue">
+      <div class="app-home-exercise-type">
+        <div class="app-home-exercise-type-1">
+          <div class="app-home-exercise-type-name">{{ exercise.value }}</div>
+          <div class="app-home-exercise-type-muscles">
+            Primary muscles: {{ exercise.value }}
+          </div>
+        </div>
+        <div class="app-home-exercise-type-2">
+          <img src="../../../../assets/sample/{{ exercise.key }}.gif" />
+        </div>
+        <div class="app-home-exercise-type-3">
+          <button mat-button>Learn more</button>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+    </ng-container>
+  </div>
+</div>
