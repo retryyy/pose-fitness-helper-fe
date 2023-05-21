@@ -26,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { MtxTooltipModule } from '@ng-matero/extensions/tooltip';
 
 import { SidebarComponent } from './page/sidebar/sidebar.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -44,6 +45,7 @@ import { UploadExercisesPreviewComponent } from './page/content/upload-exercises
 import { EnumPipe } from './pipe/enum.pipe';
 import { ExerciseTypeComponent } from './page/common/exercise-type/exercise-type.component';
 import { ChooseTypeComponent } from './page/content/analyze/choose-type/choose-type.component';
+import { ExerciseTooltipComponent } from './page/common/exercise-tooltip/exercise-tooltip.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,7 @@ import { ChooseTypeComponent } from './page/content/analyze/choose-type/choose-t
     EnumPipe,
     ExerciseTypeComponent,
     ChooseTypeComponent,
+    ExerciseTooltipComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +92,7 @@ import { ChooseTypeComponent } from './page/content/analyze/choose-type/choose-t
     MatRadioModule,
 
     NgxDropzoneModule,
+    MtxTooltipModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

@@ -22,7 +22,14 @@
           </mat-error>
         </mat-form-field>
 
-        <span class="app-upload-exercises-subtitle">Exercise type</span>
+        <span class="app-upload-exercises-subtitle">
+          Exercise type
+          <app-exercise-tooltip
+            class="app-upload-exercises-sample"
+            *ngIf="exerciseForm.get('type')?.value"
+            [exerciseType]="exerciseForm.get('type')?.value"
+          ></app-exercise-tooltip>
+        </span>
         <mat-form-field appearance="outline">
           <mat-label>Select a type</mat-label>
           <mat-select formControlName="type" name="food">
