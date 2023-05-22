@@ -30,13 +30,15 @@
       justify-content: center;
     }
 
-    .app-exercise-description-text {
-      font-size: 18px;
+    .app-exercise-description-image-and-description {
+      display: flex;
+      align-items: center;
+      font-size: 22px;
 
-      padding: 15px;
-    }
+      .app-exercise-description-text {
+        padding-left: 30px;
+      }
 
-    .app-exercise-description-image {
       img {
         border-radius: 5px;
         height: 200px;

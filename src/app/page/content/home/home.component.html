@@ -5,7 +5,8 @@
         <div class="app-home-exercise-type-1">
           <div class="app-home-exercise-type-name">{{ exercise.value }}</div>
           <div class="app-home-exercise-type-muscles">
-            Primary muscles: {{ exercise.value }}
+            <strong>Primary muscles:</strong>
+            {{ info[exercise.key].primaryMuscles.join(", ") }}
           </div>
         </div>
         <div class="app-home-exercise-type-2">

@@ -8,11 +8,20 @@
       {{ exerciseType | enum : exerciseTypeEnum }}
     </div>
 
-    <div class="app-exercise-description-text">{{ info.description }}</div>
-
-    <div class="app-exercise-description-image">
+    <div class="app-exercise-description-image-and-description">
       <img src="../../../../assets/sample/{{ exerciseType }}.gif" />
+      <div class="app-exercise-description-text">{{ info.description }}</div>
     </div>
+
+    <h2>Primary muscles used</h2>
+    <ul>
+      <li
+        *ngFor="let primaryMuscle of info.primaryMuscles"
+        class="app-exercise-description-instruction"
+      >
+        {{ primaryMuscle }}
+      </li>
+    </ul>
 
     <h2>Instructions</h2>
     <ul>
@@ -30,7 +39,8 @@
         *ngFor="let benefit of info.benefits"
         class="app-exercise-description-instruction"
       >
-        {{ benefit }}
+        <strong>{{ benefit.split(":")[0] }}:</strong>
+        {{ benefit.split(":")[1] }}
       </li>
     </ul>
   </div>

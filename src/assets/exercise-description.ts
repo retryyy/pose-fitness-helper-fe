@@ -2,6 +2,7 @@ export interface ExerciseInfo {
   description: string;
   instructions: string[];
   benefits: string[];
+  primaryMuscles: string[];
 }
 export interface ExercisesInfo {
   [key: string]: ExerciseInfo;
@@ -31,6 +32,7 @@ export const exerciseInfo: ExercisesInfo = {
       'Bone density and joint health: The load-bearing nature of barbell back squats can have positive effects on bone density, particularly in the lower body. Squats also promote joint health and mobility, as they require a full range of motion in the hips, knees, and ankles.',
       'Mental resilience: Barbell back squats are a challenging exercise that requires mental focus and determination. Consistently training and progressively increasing the weight can help build mental resilience and discipline, which can carry over to other aspects of life.',
     ],
+    primaryMuscles: ['Hip', 'Leg'],
   },
   DUMBBELL_ROWS: {
     description:
@@ -52,6 +54,7 @@ export const exerciseInfo: ExercisesInfo = {
       'Increased grip strength: Holding and stabilizing the dumbbells during rows requires a strong grip. Regularly performing dumbbell rows can help improve your grip strength, which can be beneficial for various activities in and out of the gym, such as lifting heavy objects and participating in sports that involve gripping.',
       'Versatility and convenience: Dumbbell rows can be performed with just a pair of dumbbells, making them a versatile and convenient exercise. You can do them at home or in the gym, making them accessible for individuals with limited equipment or time constraints.',
     ],
+    primaryMuscles: ['Back / Wing'],
   },
   DUMBBELL_SHOULDER_PRESS: {
     description:
@@ -74,5 +77,6 @@ export const exerciseInfo: ExercisesInfo = {
       'Functional carryover: The strength and stability gained from dumbbell shoulder press can have practical applications in daily life. It can enhance your ability to perform overhead movements, such as lifting objects or reaching overhead, with greater ease and control.',
       'Versatility and convenience: Dumbbell shoulder press can be performed with just a pair of dumbbells, making it a versatile and convenient exercise. You can do it in various settings, including home workouts or the gym, making it accessible for individuals with limited equipment or time constraints.',
     ],
+    primaryMuscles: ['Shoulders'],
   },
 };
