@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ExerciseType } from 'src/app/interface/exercise';
 
 @Component({
@@ -8,4 +9,10 @@ import { ExerciseType } from 'src/app/interface/exercise';
 })
 export class HomeComponent {
   exerciseType = ExerciseType;
+
+  constructor(private router: Router) {}
+
+  learnMore(exercise: string): void {
+    this.router.navigateByUrl(`/exercise/${exercise}`);
+  }
 }

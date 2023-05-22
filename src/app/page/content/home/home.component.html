@@ -12,7 +12,9 @@
           <img src="../../../../assets/sample/{{ exercise.key }}.gif" />
         </div>
         <div class="app-home-exercise-type-3">
-          <button mat-button>Learn more</button>
+          <button mat-button (click)="learnMore(exercise.key)">
+            Learn more
+          </button>
         </div>
       </div>
       <mat-divider></mat-divider>

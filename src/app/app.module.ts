@@ -46,6 +46,7 @@ import { EnumPipe } from './pipe/enum.pipe';
 import { ExerciseTypeComponent } from './page/common/exercise-type/exercise-type.component';
 import { ChooseTypeComponent } from './page/content/analyze/choose-type/choose-type.component';
 import { ExerciseTooltipComponent } from './page/common/exercise-tooltip/exercise-tooltip.component';
+import { ExerciseDescriptionComponent } from './page/content/home/exercise-description/exercise-description.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { ExerciseTooltipComponent } from './page/common/exercise-tooltip/exercis
     ExerciseTypeComponent,
     ChooseTypeComponent,
     ExerciseTooltipComponent,
+    ExerciseDescriptionComponent,
   ],
   imports: [
     BrowserModule,

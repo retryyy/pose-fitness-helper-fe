@@ -9,6 +9,7 @@ import { AnalyzeComponent } from './page/content/analyze/analyze.component';
 import { HomeComponent } from './page/content/home/home.component';
 import { PageComponent } from './page/page.component';
 import { UploadExercisesComponent } from './page/content/upload-exercises/upload-exercises.component';
+import { ExerciseDescriptionComponent } from './page/content/home/exercise-description/exercise-description.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [LoginPageGuard] },
@@ -23,6 +24,10 @@ const routes: Routes = [
     canActivate: [LoginGuard],
     children: [
       { path: '', component: HomeComponent },
+      {
+        path: 'exercise/:exerciseType',
+        component: ExerciseDescriptionComponent,
+      },
       { path: 'upload', component: UploadExercisesComponent },
       {
         path: 'analyze',

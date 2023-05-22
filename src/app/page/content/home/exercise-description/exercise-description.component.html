@@ -1,0 +1,37 @@
+<mat-icon class="app-exercise-description-back" (click)="navigateBack()">
+  arrow_circle_left
+</mat-icon>
+
+<div class="app-exercise-description-container">
+  <div class="app-exercise-description-narrow-container">
+    <div class="app-exercise-description-title">
+      {{ exerciseType | enum : exerciseTypeEnum }}
+    </div>
+
+    <div class="app-exercise-description-text">{{ info.description }}</div>
+
+    <div class="app-exercise-description-image">
+      <img src="../../../../assets/sample/{{ exerciseType }}.gif" />
+    </div>
+
+    <h2>Instructions</h2>
+    <ul>
+      <li
+        *ngFor="let instruction of info.instructions"
+        class="app-exercise-description-instruction"
+      >
+        {{ instruction }}
+      </li>
+    </ul>
+
+    <h2>Benefits</h2>
+    <ul>
+      <li
+        *ngFor="let benefit of info.benefits"
+        class="app-exercise-description-instruction"
+      >
+        {{ benefit }}
+      </li>
+    </ul>
+  </div>
+</div>
