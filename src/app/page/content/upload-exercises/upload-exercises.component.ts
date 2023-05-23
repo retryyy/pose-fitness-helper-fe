@@ -7,6 +7,7 @@ import { FileService } from 'src/app/service/file.service';
 import { ExerciseType } from 'src/app/interface/exercise';
 import { dataURItoBlob } from 'src/app/util/string-to-file';
 import { ConfigService } from 'src/app/service/config.service';
+import { PopupComponent } from 'src/app/common/popup/popup.component';
 
 @Component({
   selector: 'app-upload-exercises',
@@ -31,16 +32,36 @@ export class UploadExercisesComponent {
       name: ['', [Validators.required, Validators.minLength(5)]],
       type: ['', Validators.required],
     });
+
+    this.exerciseForm.get('type')?.valueChanges.subscribe(() => {
+      this.uploads = [];
+      this.setThumbnail(0);
+    });
   }
 
   protected openUpload(): void {
-    const dialogRef = this.dialog.open(UploadComponent, { disableClose: true });
+    const exerciseType = this.exerciseForm.get('type')?.value;
 
-    dialogRef.afterClosed().subscribe((result: VideoUpload) => {
-      if (result) {
-        this.uploads.push(result);
-      }
-    });
+    if (exerciseType) {
+      const dialogRef = this.dialog.open(UploadComponent, {
+        disableClose: true,
+        data: { exerciseType },
+      });
+
+      dialogRef.afterClosed().subscribe((result: VideoUpload) => {
+        if (result) {
+          this.uploads.push(result);
+        }
+      });
+    } else {
+      this.dialog.open(PopupComponent, {
+        data: {
+          title: 'Information',
+          message: 'Please choose an exercise type before uploading video!',
+          noChoose: true,
+        },
+      });
+    }
   }
 
   deleteGif(index: number): void {

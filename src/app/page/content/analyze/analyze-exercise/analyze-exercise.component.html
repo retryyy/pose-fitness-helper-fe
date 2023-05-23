@@ -25,6 +25,12 @@
               class="app-upload-exercises-sample"
               [exerciseType]="exercise?.type"
             ></app-exercise-tooltip>
+            <mat-icon
+              matTooltip="Check exercise information"
+              (click)="openExercise()"
+            >
+              open_in_new
+            </mat-icon>
           </div>
 
           <mat-icon

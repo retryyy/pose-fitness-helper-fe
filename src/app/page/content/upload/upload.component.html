@@ -118,8 +118,9 @@
 
         <div class="margin-top-10">Choose direction</div>
         <mat-radio-group [(ngModel)]="direction">
-          <mat-radio-button value="front">Front view</mat-radio-button>
-          <mat-radio-button value="side">Side view</mat-radio-button>
+          <mat-radio-button *ngFor="let side of sides" [value]="side">
+            {{ side | titlecase }} view
+          </mat-radio-button>
         </mat-radio-group>
 
         <div class="app-upload-buttons">

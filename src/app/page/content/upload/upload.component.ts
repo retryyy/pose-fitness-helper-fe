@@ -1,8 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatStepper } from '@angular/material/stepper';
 import { NgxDropzoneChangeEvent } from 'ngx-dropzone';
+import { map } from 'rxjs';
+import { ConfigService } from 'src/app/service/config.service';
 import { FileService } from 'src/app/service/file.service';
 
 export interface VideoUpload {
@@ -16,7 +18,7 @@ export interface VideoUpload {
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss'],
 })
-export class UploadComponent {
+export class UploadComponent implements OnInit {
   @ViewChild('stepper') private myStepper?: MatStepper;
 
   loading: boolean = false;
@@ -35,11 +37,21 @@ export class UploadComponent {
 
   direction?: string;
 
+  sides?: string[];
+
   constructor(
     private fileService: FileService,
     private _snackBar: MatSnackBar,
-    public dialogRef: MatDialogRef<UploadComponent>
+    public dialogRef: MatDialogRef<UploadComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private configService: ConfigService
   ) {}
+
+  ngOnInit(): void {
+    this.configService.exercises$
+      .pipe(map((res) => res[this.data.exerciseType]))
+      .subscribe((sides) => (this.sides = sides));
+  }
 
   onSelect(event: NgxDropzoneChangeEvent): void {
     if (event.addedFiles.length) {

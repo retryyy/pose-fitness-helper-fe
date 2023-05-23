@@ -62,7 +62,10 @@ export class AnalyzeExerciseComponent implements OnInit {
   }
 
   protected addExerciseFile(): void {
-    const dialogRef = this.dialog.open(UploadComponent, { disableClose: true });
+    const dialogRef = this.dialog.open(UploadComponent, {
+      disableClose: true,
+      data: { exerciseType: this.exercise?.type },
+    });
 
     dialogRef.afterClosed().subscribe((result: VideoUpload) => {
       if (result) {
@@ -78,5 +81,9 @@ export class AnalyzeExerciseComponent implements OnInit {
           .subscribe(() => this.loadExercise());
       }
     });
+  }
+
+  protected openExercise(): void {
+    window.open(`/exercise/${this.exercise?.type}`, '_blank');
   }
 }

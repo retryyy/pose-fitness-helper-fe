@@ -11,7 +11,12 @@
   >
     Ok
   </button>
-  <button mat-button (click)="onNoClick()" class="margin-right-10">
+  <button
+    *ngIf="!data.noChoose"
+    mat-button
+    (click)="onNoClick()"
+    class="margin-right-10"
+  >
     Cancel
   </button>
 </div>
