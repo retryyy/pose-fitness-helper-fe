@@ -1,18 +1,20 @@
 <div class="app-choose-type-container">
-  <div class="app-choose-type-subcontainer">
+  <div
+    class="app-choose-type-subcontainer"
+    *ngIf="configService.exerciseTypes$ | async as exercises"
+  >
     <div
-      *ngFor="let exercise of exerciseType | keyvalue"
+      *ngFor="let exercise of exercises"
       class="app-choose-type-card"
-      (click)="setType(exercise.key)"
+      (click)="setType(exercise)"
     >
       <div class="app-choose-type-card-title">
-        {{ exercise.value }}
+        {{ exercise | enum : exerciseType }}
       </div>
       <div
         class="app-choose-type-card-img"
         [ngStyle]="{
-          'background-image':
-            'url(../../../../../assets/' + exercise.key + '.jpg)'
+          'background-image': 'url(../../../../../assets/' + exercise + '.jpg)'
         }"
       ></div>
     </div>

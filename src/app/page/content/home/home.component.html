@@ -1,21 +1,24 @@
 <div class="app-home-container">
-  <div class="app-home-narrow-container">
-    <ng-container *ngFor="let exercise of exerciseType | keyvalue">
+  <div
+    class="app-home-narrow-container"
+    *ngIf="configService.exerciseTypes$ | async as exercises"
+  >
+    <ng-container *ngFor="let exercise of exercises">
       <div class="app-home-exercise-type">
         <div class="app-home-exercise-type-1">
-          <div class="app-home-exercise-type-name">{{ exercise.value }}</div>
+          <div class="app-home-exercise-type-name">
+            {{ exercise | enum : exerciseType }}
+          </div>
           <div class="app-home-exercise-type-muscles">
             <strong>Primary muscles:</strong>
-            {{ info[exercise.key].primaryMuscles.join(", ") }}
+            {{ info[exercise].primaryMuscles.join(", ") }}
           </div>
         </div>
         <div class="app-home-exercise-type-2">
-          <img src="../../../../assets/sample/{{ exercise.key }}.gif" />
+          <img src="../../../../assets/sample/{{ exercise }}.gif" />
         </div>
         <div class="app-home-exercise-type-3">
-          <button mat-button (click)="learnMore(exercise.key)">
-            Learn more
-          </button>
+          <button mat-button (click)="learnMore(exercise)">Learn more</button>
         </div>
       </div>
       <mat-divider></mat-divider>

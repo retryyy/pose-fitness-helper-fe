@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { ExerciseThumbnail, ExerciseType } from 'src/app/interface/exercise';
+import { ExerciseThumbnail } from 'src/app/interface/exercise';
 
 @Component({
   selector: 'app-card',

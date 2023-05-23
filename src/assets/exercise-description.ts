@@ -36,7 +36,7 @@ export const exerciseInfo: ExercisesInfo = {
   },
   DUMBBELL_ROWS: {
     description:
-      "Dumbbell rows, also known as bent-over dumbbell rows, are a compound exercise that primarily targets the muscles of the upper back, including the lats (latissimus dorsi), rhomboids, and traps. It also engages the biceps and core muscles. Here's how to perform dumbbell rows",
+      'Dumbbell rows, also known as bent-over dumbbell rows, are a compound exercise that primarily targets the muscles of the upper back, including the lats (latissimus dorsi), rhomboids, and traps. It also engages the biceps and core muscles.',
     instructions: [
       'Begin by standing with your feet shoulder-width apart, holding a dumbbell in each hand with a neutral grip (palms facing each other). Keep your knees slightly bent and your torso leaned forward, maintaining a flat back.',
       'Engage your core muscles to stabilize your body throughout the exercise.',

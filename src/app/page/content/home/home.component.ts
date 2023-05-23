@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ExerciseType } from 'src/app/interface/exercise';
+import { ConfigService } from 'src/app/service/config.service';
 import { ExercisesInfo, exerciseInfo } from 'src/assets/exercise-description';
 
 @Component({
@@ -12,7 +13,7 @@ export class HomeComponent {
   exerciseType = ExerciseType;
   info: ExercisesInfo;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, protected configService: ConfigService) {
     this.info = exerciseInfo;
   }
 

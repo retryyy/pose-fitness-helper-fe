@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileService } from 'src/app/service/file.service';
 import { ExerciseType } from 'src/app/interface/exercise';
 import { dataURItoBlob } from 'src/app/util/string-to-file';
+import { ConfigService } from 'src/app/service/config.service';
 
 @Component({
   selector: 'app-upload-exercises',
@@ -23,7 +24,8 @@ export class UploadExercisesComponent {
     private fileService: FileService,
     private fb: FormBuilder,
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    protected configService: ConfigService
   ) {
     this.exerciseForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],

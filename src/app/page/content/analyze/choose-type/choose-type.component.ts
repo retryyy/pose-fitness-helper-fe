@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { ExerciseType } from 'src/app/interface/exercise';
+import { ConfigService } from 'src/app/service/config.service';
 
 @Component({
   selector: 'app-choose-type',
@@ -9,6 +10,8 @@ import { ExerciseType } from 'src/app/interface/exercise';
 export class ChooseTypeComponent {
   @Output() exerciseChange = new EventEmitter<string>();
   exerciseType = ExerciseType;
+
+  constructor(protected configService: ConfigService) {}
 
   setType(exerciseType: string): void {
     this.exerciseChange.emit(exerciseType);
