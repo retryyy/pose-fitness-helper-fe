@@ -32,8 +32,22 @@ export class UploadExercisesComponent {
     });
 
     this.exerciseForm.get('type')?.valueChanges.subscribe(() => {
-      this.uploads = [];
-      this.setThumbnail(0);
+      if (this.uploads.length) {
+        const dialogRef = this.dialog.open(PopupComponent, {
+          data: {
+            title: 'Changing exercise type',
+            message:
+              'Do you really want to change exercise type? Loaded videos will be removed!',
+          },
+        });
+
+        dialogRef.afterClosed().subscribe((result) => {
+          if (result) {
+            this.uploads = [];
+            this.setThumbnail(0);
+          }
+        });
+      }
     });
   }
 
