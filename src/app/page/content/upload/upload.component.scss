@@ -39,10 +39,7 @@
   font-size: 24px;
 }
 
-.app-upload-video-frame {
-  width: 666px;
-  height: 374.625px;
-
+.app-upload-frame {
   position: relative;
   display: flex;
   justify-content: center;
@@ -52,6 +49,13 @@
   img {
     height: 100%;
   }
+}
+.app-upload-frame-video {
+  width: 666px;
+  height: 374.625px;
+}
+.app-upload-frame-dropzone {
+  height: 320px;
 }
 
 .app-upload-video {
@@ -105,12 +109,13 @@
 .app-upload-stepper-container {
   height: 100% !important;
 
-  p {
+  .app-upload-directions {
     display: flex;
     align-items: center;
 
     mat-icon {
       color: red;
+      padding-right: 3px;
     }
   }
 }

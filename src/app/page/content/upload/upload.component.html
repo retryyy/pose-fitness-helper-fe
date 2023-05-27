@@ -16,21 +16,24 @@
           <h3 class="margin-bottom-0 margin-top-0">Upload & trim video</h3>
           <p class="margin-top-0">
             Trim the video to get the movement you want to analyze.
-            <mat-icon
-              [matTooltip]="
-                'Possible captured movement directions: ' + sides?.join(' & ')
-              "
-            >
-              info
-            </mat-icon>
           </p>
+          <div *ngIf="!file" class="app-upload-directions margin-bottom-5">
+            <mat-icon>info</mat-icon>
+            <span>
+              Choosable movement directions:
+              <strong>{{ sides?.join(" and ") }}</strong>
+            </span>
+          </div>
         </ng-container>
 
-        <div class="app-upload-video-frame" [hidden]="loading">
+        <div
+          *ngIf="!file"
+          class="app-upload-frame app-upload-frame-dropzone"
+          [hidden]="loading"
+        >
           <div
             class="app-upload-dropzone"
             ngx-dropzone
-            *ngIf="!file"
             (change)="onSelect($event)"
             [multiple]="false"
             accept="video/mp4"
@@ -39,10 +42,15 @@
             Drag-and-drop an mp4 video, or click and choose one! Max file size
             is 30MB.
           </div>
+        </div>
 
+        <div
+          *ngIf="file"
+          class="app-upload-frame app-upload-frame-video"
+          [hidden]="loading"
+        >
           <video
             [src]="url"
-            *ngIf="file"
             type="video/mp4"
             (durationchange)="setDuration($event)"
             (timeupdate)="onTimeUpdate($event)"
@@ -53,7 +61,7 @@
             controlslist="nodownload nofullscreen noremoteplayback"
           ></video>
 
-          <div *ngIf="file" class="app-upload-currenttime">
+          <div class="app-upload-currenttime">
             {{ currentTime }}
           </div>
         </div>
@@ -116,7 +124,7 @@
           </p>
         </ng-container>
 
-        <div class="app-upload-video-frame">
+        <div class="app-upload-frame app-upload-frame-video">
           <img
             *ngIf="trimmedVideo"
             src="data:image/gif;base64,{{ trimmedVideo }}"
