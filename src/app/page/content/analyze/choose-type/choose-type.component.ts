@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { ExerciseType } from 'src/app/interface/exercise';
 import { ConfigService } from 'src/app/service/config.service';
 
 @Component({
@@ -9,7 +8,6 @@ import { ConfigService } from 'src/app/service/config.service';
 })
 export class ChooseTypeComponent {
   @Output() exerciseChange = new EventEmitter<string>();
-  exerciseType = ExerciseType;
 
   constructor(protected configService: ConfigService) {}
 

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ExerciseType } from 'src/app/interface/exercise';
 import { ConfigService } from 'src/app/service/config.service';
-import { ExercisesInfo, exerciseInfo } from 'src/assets/exercise-description';
+import { ExercisesInfo } from 'src/app/interface/exercise-description';
+import * as _exerciseInfo from 'src/assets/exercise-description.json';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +10,10 @@ import { ExercisesInfo, exerciseInfo } from 'src/assets/exercise-description';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {
-  exerciseType = ExerciseType;
   info: ExercisesInfo;
 
   constructor(private router: Router, protected configService: ConfigService) {
+    let exerciseInfo = _exerciseInfo as ExercisesInfo;
     this.info = exerciseInfo;
   }
 

@@ -37,7 +37,7 @@
           <mat-label>Select a type</mat-label>
           <mat-select formControlName="type" name="food">
             <mat-option *ngFor="let exercise of exercises" [value]="exercise">
-              {{ exercise | enum : exerciseType }}
+              {{ exercise | exerciseType }}
             </mat-option>
           </mat-select>
           <mat-error>Exercise type is required</mat-error>

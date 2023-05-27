@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ExerciseType } from 'src/app/interface/exercise';
 
 @Component({
   selector: 'app-exercise-type',
@@ -8,5 +7,4 @@ import { ExerciseType } from 'src/app/interface/exercise';
 })
 export class ExerciseTypeComponent {
   @Input() exerciseTypeString?: string;
-  exerciseType = ExerciseType;
 }

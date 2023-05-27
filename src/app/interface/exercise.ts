@@ -23,12 +23,3 @@ export interface Exercise {
   created: Date;
   files: ExerciseFile[];
 }
-
-export enum ExerciseType {
-  // BENCH_PRESS = 'Bench press',
-  // DUMBBELL_CHEST_PRESS = 'Dumbbell chest press',
-  DUMBBELL_SHOULDER_PRESS = 'Dumbbell shoulder press',
-  BARBELL_BACK_SQUAT = 'Barbell back squat',
-  // SKULL_CRUSHER = 'Skull crusher',
-  DUMBBELL_ROWS = 'Dumbbell rows',
-}

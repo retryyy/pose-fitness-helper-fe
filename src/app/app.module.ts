@@ -42,7 +42,7 @@ import { PopupComponent } from './common/popup/popup.component';
 import { AnalyzeExerciseComponent } from './page/content/analyze/analyze-exercise/analyze-exercise.component';
 import { UploadExercisesComponent } from './page/content/upload-exercises/upload-exercises.component';
 import { UploadExercisesPreviewComponent } from './page/content/upload-exercises/upload-exercises-preview/upload-exercises-preview.component';
-import { EnumPipe } from './pipe/enum.pipe';
+import { ExerciseTypePipe } from './pipe/exercise-type.pipe';
 import { ExerciseTypeComponent } from './page/common/exercise-type/exercise-type.component';
 import { ChooseTypeComponent } from './page/content/analyze/choose-type/choose-type.component';
 import { ExerciseTooltipComponent } from './page/common/exercise-tooltip/exercise-tooltip.component';
@@ -64,7 +64,7 @@ import { ExerciseDescriptionComponent } from './page/content/home/exercise-descr
     AnalyzeExerciseComponent,
     UploadExercisesComponent,
     UploadExercisesPreviewComponent,
-    EnumPipe,
+    ExerciseTypePipe,
     ExerciseTypeComponent,
     ChooseTypeComponent,
     ExerciseTooltipComponent,

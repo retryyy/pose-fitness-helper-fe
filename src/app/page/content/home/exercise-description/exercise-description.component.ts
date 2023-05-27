@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ExerciseType } from 'src/app/interface/exercise';
-import { ExerciseInfo, exerciseInfo } from 'src/assets/exercise-description';
+import {
+  ExerciseInfo,
+  ExercisesInfo,
+} from 'src/app/interface/exercise-description';
+import * as _exerciseInfo from 'src/assets/exercise-description.json';
 
 @Component({
   selector: 'app-exercise-description',
@@ -10,13 +13,13 @@ import { ExerciseInfo, exerciseInfo } from 'src/assets/exercise-description';
 })
 export class ExerciseDescriptionComponent {
   exerciseType: string | null;
-  exerciseTypeEnum = ExerciseType;
 
   info: ExerciseInfo;
 
   constructor(private route: ActivatedRoute, private router: Router) {
     this.exerciseType = this.route.snapshot.paramMap.get('exerciseType');
 
+    let exerciseInfo = _exerciseInfo as ExercisesInfo;
     this.info = exerciseInfo[this.exerciseType!];
   }
 

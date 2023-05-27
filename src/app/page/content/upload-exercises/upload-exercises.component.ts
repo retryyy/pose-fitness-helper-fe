@@ -4,7 +4,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { UploadComponent, VideoUpload } from '../upload/upload.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FileService } from 'src/app/service/file.service';
-import { ExerciseType } from 'src/app/interface/exercise';
 import { dataURItoBlob } from 'src/app/util/string-to-file';
 import { ConfigService } from 'src/app/service/config.service';
 import { PopupComponent } from 'src/app/common/popup/popup.component';
@@ -15,7 +14,6 @@ import { PopupComponent } from 'src/app/common/popup/popup.component';
   styleUrls: ['./upload-exercises.component.scss'],
 })
 export class UploadExercisesComponent {
-  exerciseType = ExerciseType;
   exerciseForm: FormGroup;
 
   uploads: VideoUpload[] = [];
