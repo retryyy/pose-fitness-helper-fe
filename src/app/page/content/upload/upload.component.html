@@ -16,6 +16,13 @@
           <h3 class="margin-bottom-0 margin-top-0">Upload & trim video</h3>
           <p class="margin-top-0">
             Trim the video to get the movement you want to analyze.
+            <mat-icon
+              [matTooltip]="
+                'Possible captured movement directions: ' + sides?.join(' & ')
+              "
+            >
+              info
+            </mat-icon>
           </p>
         </ng-container>
 
