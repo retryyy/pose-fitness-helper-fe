@@ -48,9 +48,11 @@ export class UploadComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.configService.exercises$
-      .pipe(map((res) => res[this.data.exerciseType]))
-      .subscribe((sides) => (this.sides = sides));
+    if (this.data) {
+      this.configService.exercises$
+        .pipe(map((res) => res[this.data.exerciseType]))
+        .subscribe((sides) => (this.sides = sides));
+    }
   }
 
   onSelect(event: NgxDropzoneChangeEvent): void {
@@ -121,5 +123,11 @@ export class UploadComponent implements OnInit {
       video: this.trimmedVideo,
       points: this.points,
     } as VideoUpload);
+  }
+
+  downloadVideo(): void {
+    this.dialogRef.close({
+      points: this.points,
+    });
   }
 }

@@ -1,7 +1,7 @@
 <div
   *ngFor="let elem of sidebar"
   class="sidebar-elem"
-  (click)="navigate(elem.navigate)"
+  (click)="elem.click ? elem.click() : navigate(elem.navigate)"
 >
   <mat-icon>{{ elem.icon }}</mat-icon> {{ elem.title }}
 </div>
