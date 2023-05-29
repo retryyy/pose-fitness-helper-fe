@@ -59,7 +59,10 @@
               />
             </div>
             <div class="app-analyze-exercise-right full-center">
-              <div class="app-analyze-exercise-score-container full-center">
+              <div
+                matTooltip="Based on aggregated joint distance from a baseline movement"
+                class="app-analyze-exercise-score-container full-center"
+              >
                 <div class="app-analyze-exercise-score-text">SCORE</div>
                 <div class="app-analyze-exercise-score">
                   {{ files.analyze.score }}
@@ -69,6 +72,7 @@
           </div>
           <div class="app-analyze-exercise-feedback">
             <div class="app-analyze-exercise-feedback-correct">
+              <span class="app-analyze-exercise-feedback-title">CORRECT</span>
               <div
                 *ngFor="let correct of files.analyze.correct"
                 class="app-analyze-exercise-feedback-line"
@@ -78,6 +82,9 @@
               </div>
             </div>
             <div class="app-analyze-exercise-feedback-incorrect">
+              <span class="app-analyze-exercise-feedback-title">
+                CHANGE OR ATTENTION IS NEEDED
+              </span>
               <div
                 *ngFor="let incorrect of files.analyze.incorrect"
                 class="app-analyze-exercise-feedback-line"

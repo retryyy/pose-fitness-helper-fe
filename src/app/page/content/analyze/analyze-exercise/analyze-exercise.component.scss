@@ -152,6 +152,10 @@
           mat-icon {
             color: green;
           }
+
+          .app-analyze-exercise-feedback-title {
+            color: rgb(27, 112, 27);
+          }
         }
         .app-analyze-exercise-feedback-incorrect {
           padding: 10px;
@@ -160,6 +164,13 @@
           mat-icon {
             color: red;
           }
+
+          .app-analyze-exercise-feedback-title {
+            color: rgb(148, 15, 15);
+          }
+        }
+        .app-analyze-exercise-feedback-title {
+          font-weight: 600;
         }
         .app-analyze-exercise-feedback-line {
           display: flex;
