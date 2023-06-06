@@ -62,6 +62,14 @@
               <div
                 matTooltip="Based on aggregated joint distance from a baseline movement"
                 class="app-analyze-exercise-score-container full-center"
+                [ngClass]="{
+                  'color-green': files.analyze.score >= 85,
+                  'color-yellow':
+                    files.analyze.score < 85 && files.analyze.score >= 75,
+                  'color-orange':
+                    files.analyze.score < 75 && files.analyze.score >= 65,
+                  'color-red': files.analyze.score < 65
+                }"
               >
                 <div class="app-analyze-exercise-score-text">SCORE</div>
                 <div class="app-analyze-exercise-score">
