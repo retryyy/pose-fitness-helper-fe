@@ -7,6 +7,7 @@ import { FileService } from 'src/app/service/file.service';
 import { dataURItoBlob } from 'src/app/util/string-to-file';
 import { ConfigService } from 'src/app/service/config.service';
 import { PopupComponent } from 'src/app/common/popup/popup.component';
+import { pairwise } from 'rxjs';
 
 @Component({
   selector: 'app-upload-exercises',
@@ -31,24 +32,31 @@ export class UploadExercisesComponent {
       type: ['', Validators.required],
     });
 
-    this.exerciseForm.get('type')?.valueChanges.subscribe(() => {
-      if (this.uploads.length) {
-        const dialogRef = this.dialog.open(PopupComponent, {
-          data: {
-            title: 'Changing exercise type',
-            message:
-              'Do you really want to change exercise type? Loaded videos will be removed!',
-          },
-        });
+    this.exerciseForm
+      .get('type')
+      ?.valueChanges.pipe(pairwise())
+      .subscribe(([prev, next]) => {
+        if (this.uploads.length) {
+          const dialogRef = this.dialog.open(PopupComponent, {
+            data: {
+              title: 'Changing exercise type',
+              message:
+                'Do you really want to change exercise type? Loaded videos will be removed!',
+            },
+          });
 
-        dialogRef.afterClosed().subscribe((result) => {
-          if (result) {
-            this.uploads = [];
-            this.setThumbnail(0);
-          }
-        });
-      }
-    });
+          dialogRef.afterClosed().subscribe((result) => {
+            if (result) {
+              this.uploads = [];
+              this.setThumbnail(0);
+            } else {
+              this.exerciseForm
+                .get('type')
+                ?.setValue(prev, { emitEvent: false });
+            }
+          });
+        }
+      });
   }
 
   protected openUpload(): void {
