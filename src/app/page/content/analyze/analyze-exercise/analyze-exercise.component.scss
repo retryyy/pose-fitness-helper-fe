@@ -52,8 +52,13 @@
           align-items: center;
         }
 
-        .app-analyze-exercise-header-add {
-          transform: scale(1.7);
+        .app-analyze-exercise-header-icon {
+          transform: scale(1.4);
+          margin-left: 10px;
+          padding: 2px;
+        }
+        .app-analyze-exercise-header-icon:hover {
+          background-color: rgba(255, 255, 255, 0.2);
         }
         .app-analyze-exercise-header-add:hover {
           color: rgba(210, 105, 30, 0.7);
@@ -79,6 +84,16 @@
         border-radius: 7px 7px 0 0;
 
         background-color: rgba(255, 255, 255, 0.4);
+
+        &-left {
+          display: flex;
+          align-items: center;
+
+          mat-icon {
+            margin-right: 3px;
+            color: rgb(170, 90, 32);
+          }
+        }
 
         mat-icon {
           padding: 3px;

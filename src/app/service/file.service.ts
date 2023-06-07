@@ -73,4 +73,10 @@ export class FileService {
       formData
     );
   }
+
+  getBenchmarkVideo(poseType: string, view: string): Observable<HttpResponse> {
+    return this.http.get<HttpResponse>(
+      `${environment.server}/benchmark/${poseType}/${view}`
+    );
+  }
 }

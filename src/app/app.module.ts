@@ -47,6 +47,7 @@ import { ExerciseTypeComponent } from './page/common/exercise-type/exercise-type
 import { ChooseTypeComponent } from './page/content/analyze/choose-type/choose-type.component';
 import { ExerciseTooltipComponent } from './page/common/exercise-tooltip/exercise-tooltip.component';
 import { ExerciseDescriptionComponent } from './page/content/home/exercise-description/exercise-description.component';
+import { ImageViewerComponent } from './common/image-viewer/image-viewer.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { ExerciseDescriptionComponent } from './page/content/home/exercise-descr
     ChooseTypeComponent,
     ExerciseTooltipComponent,
     ExerciseDescriptionComponent,
+    ImageViewerComponent,
   ],
   imports: [
     BrowserModule,

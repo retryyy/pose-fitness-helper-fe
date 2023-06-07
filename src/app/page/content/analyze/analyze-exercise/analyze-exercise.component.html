@@ -21,30 +21,35 @@
             <app-exercise-type
               [exerciseTypeString]="exercise?.type"
             ></app-exercise-type>
-            <app-exercise-tooltip
-              [exerciseType]="exercise?.type"
-            ></app-exercise-tooltip>
-            <mat-icon
-              matTooltip="Check exercise information"
-              (click)="openExercise()"
-            >
-              open_in_new
-            </mat-icon>
           </div>
 
-          <mat-icon
-            class="app-analyze-exercise-header-add"
-            (click)="addExerciseFile()"
-            matTooltip="Add video to exercise"
-          >
-            add_circle_outline
-          </mat-icon>
+          <div>
+            <mat-icon
+              fontIcon="info_outline"
+              class="app-analyze-exercise-header-icon"
+              matTooltip="Check exercise information"
+              (click)="openExercise()"
+            ></mat-icon>
+            <mat-icon
+              fontIcon="add_circle_outline"
+              class="app-analyze-exercise-header-icon"
+              (click)="addExerciseFile()"
+              matTooltip="Add video to exercise"
+            ></mat-icon>
+          </div>
         </div>
       </div>
       <ng-container *ngFor="let files of exercise?.files">
         <div class="app-analyze-exercise-movement-container">
           <div class="app-analyze-exercise-view full-center">
-            <div>{{ files.view }} view</div>
+            <div class="app-analyze-exercise-view-left">
+              <mat-icon
+                fontIcon="play_circle_outline"
+                matTooltip="Open benchmark video"
+                (click)="openBenchmarkVideo()"
+              ></mat-icon>
+              <div>{{ files.view }} view</div>
+            </div>
             <mat-icon
               fontIcon="delete"
               (click)="deleteExerciseFile(files.file_id)"

@@ -6,6 +6,7 @@ import { Exercise } from 'src/app/interface/exercise';
 import { FileService } from 'src/app/service/file.service';
 import { UploadComponent, VideoUpload } from '../../upload/upload.component';
 import { dataURItoBlob } from 'src/app/util/string-to-file';
+import { ImageViewerComponent } from 'src/app/common/image-viewer/image-viewer.component';
 
 @Component({
   selector: 'app-analyze-exercise',
@@ -85,5 +86,18 @@ export class AnalyzeExerciseComponent implements OnInit {
 
   protected openExercise(): void {
     window.open(`/exercise/${this.exercise?.type}`, '_blank');
+  }
+
+  protected openBenchmarkVideo(): void {
+    this.fileService
+      .getBenchmarkVideo('BARBELL_BACK_SQUAT', 'side')
+      .subscribe((res) => {
+        this.dialog.open(ImageViewerComponent, {
+          disableClose: true,
+          data: {
+            video: res.data,
+          },
+        });
+      });
   }
 }
