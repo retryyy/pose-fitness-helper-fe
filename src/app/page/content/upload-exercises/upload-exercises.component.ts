@@ -116,7 +116,7 @@ export class UploadExercisesComponent {
         .subscribe({
           next: () => {
             this._snackBar.open('Files were uploaded and analyzed!');
-            this.exerciseForm.reset();
+            this.exerciseForm.reset(null, { emitEvent: false });
             this.thumbnailIndex = 0;
             this.uploads = [];
           },

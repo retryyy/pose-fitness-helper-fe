@@ -90,7 +90,7 @@ export class AnalyzeExerciseComponent implements OnInit {
 
   protected openBenchmarkVideo(): void {
     this.fileService
-      .getBenchmarkVideo('BARBELL_BACK_SQUAT', 'side')
+      .getBenchmarkVideo(this.exercise!.type, 'side')
       .subscribe((res) => {
         this.dialog.open(ImageViewerComponent, {
           disableClose: true,

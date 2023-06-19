@@ -86,6 +86,7 @@
           <div class="app-analyze-exercise-feedback">
             <div class="app-analyze-exercise-feedback-correct">
               <span class="app-analyze-exercise-feedback-title">CORRECT</span>
+              <div *ngIf="!files.analyze.correct.length">-</div>
               <div
                 *ngFor="let correct of files.analyze.correct"
                 class="app-analyze-exercise-feedback-line"
@@ -98,6 +99,7 @@
               <span class="app-analyze-exercise-feedback-title">
                 CHANGE OR ATTENTION IS NEEDED
               </span>
+              <div *ngIf="!files.analyze.incorrect.length">-</div>
               <div
                 *ngFor="let incorrect of files.analyze.incorrect"
                 class="app-analyze-exercise-feedback-line"

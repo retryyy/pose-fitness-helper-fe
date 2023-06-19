@@ -77,5 +77,32 @@
     "primaryMuscles": [
       "Back / Wing"
     ]
+  },
+  "DUMBBELL_ROMANIAN_DEADLIFT": {
+    "name": "Dumbbell romanian deadlift",
+    "description": "The dumbbell Romanian deadlift (RDL) is a variation of the traditional deadlift exercise that primarily targets the muscles of the posterior chain, including the hamstrings, glutes, and lower back. It also engages the core muscles for stability and balance.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, palms facing your thighs. Keep your feet hip-width apart and a slight bend in your knees.",
+      "Maintain a neutral spine, engage your core, and slightly retract your shoulder blades to maintain good posture throughout the movement.",
+      "Begin the movement by hinging forward at the hips, pushing your buttocks backward while maintaining a slight bend in your knees. Allow the dumbbells to naturally slide down your thighs as you descend.",
+      "Continue lowering the dumbbells until you feel a stretch in your hamstrings. Be mindful of maintaining a neutral spine and avoiding excessive rounding or arching of your back.",
+      "Once you reach the maximum stretch point while maintaining good form, reverse the movement by engaging your hamstrings and glutes to drive your hips forward and return to an upright position.",
+      "Squeeze your glutes at the top of the movement to ensure full hip extension.",
+      "Repeat the movement for the desired number of repetitions, focusing on maintaining proper form and engaging the targeted muscles."
+    ],
+    "benefits": [
+      "Hamstring and glute development: The RDL primarily targets the muscles of the posterior chain, including the hamstrings and glutes. This exercise allows for a deep stretch of the hamstrings as you hinge at the hips, and then engages these muscles to return to an upright position. Regularly incorporating RDLs can help strengthen and develop the hamstrings and glutes, which are important for functional movements like running, jumping, and squatting.",
+      "Hip hinge mechanics: The RDL reinforces proper hip hinge mechanics, which is a fundamental movement pattern involved in various activities and exercises. By practicing the RDL, you can improve your ability to hinge at the hips while maintaining a neutral spine, which is important for lifting objects, athletic performance, and reducing the risk of lower back injuries.",
+      "Posterior chain strength and stability: The dumbbell RDL engages not only the hamstrings and glutes but also the muscles of the lower back, including the erector spinae. Strengthening the muscles of the posterior chain promotes better spinal stability and posture, helping to reduce the risk of lower back pain and injuries.",
+      "Improved hip mobility and flexibility: The RDL requires a good range of motion in the hips as you hinge forward and descend. This exercise can help improve hip mobility and flexibility, which is beneficial for various activities and movements in sports and daily life.",
+      "Core stability and engagement: Performing the dumbbell RDL requires you to engage your core muscles to maintain stability and control throughout the movement. The core muscles, including the abdominals, obliques, and lower back muscles, work to keep your torso stable and maintain a neutral spine. Regularly including RDLs in your routine can help strengthen your core and improve stability during other exercises and daily activities.",
+      "Balance and proprioception: The unilateral nature of the dumbbell RDL challenges your balance and proprioception, as you stabilize your body while hinging forward and lifting the dumbbells. This can improve your overall balance and body awareness.",
+      "Versatility and accessibility: The dumbbell RDL can be performed with just a pair of dumbbells, making it a convenient exercise that can be done in various settings, including home workouts or the gym. The exercise can be easily modified by adjusting the weight of the dumbbells to suit your fitness level and goals."
+    ],
+    "primaryMuscles": [
+      "Erector Spinae",
+      "Hip",
+      "Leg"
+    ]
   }
 }
