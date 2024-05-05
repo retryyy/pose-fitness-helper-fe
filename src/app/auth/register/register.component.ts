@@ -13,9 +13,9 @@ export class RegisterComponent {
 
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.registerForm = this.fb.group({
-      name: ['', Validators.required],
-      password1: ['', Validators.required],
-      password2: ['', Validators.required],
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      password1: ['', [Validators.required, Validators.minLength(5)]],
+      password2: ['', [Validators.required, Validators.minLength(5)]],
     });
 
     this.registerForm.setValidators(passwordValidator());

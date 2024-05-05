@@ -114,11 +114,17 @@ export class UploadExercisesComponent {
           thumbnailIndex: this.thumbnailIndex,
         })
         .subscribe({
-          next: () => {
-            this._snackBar.open('Files were uploaded and analyzed!');
-            this.exerciseForm.reset(null, { emitEvent: false });
+          next: (body) => {
+            const ref = this._snackBar.open(
+              'Files were uploaded and analyzed!',
+              'Open'
+            );
+            ref.onAction().subscribe(() => {
+              window.open(`/analyze/${body.data}`, '_blank');
+            });
             this.thumbnailIndex = 0;
             this.uploads = [];
+            this.exerciseForm.reset();
           },
           error: (err) => this._snackBar.open(err.error.message),
         });

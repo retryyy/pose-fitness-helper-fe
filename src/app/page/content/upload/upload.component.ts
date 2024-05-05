@@ -77,20 +77,22 @@ export class UploadComponent implements OnInit {
   trimFile(): void {
     if (this.file) {
       this.loading = true;
-      this.fileService.trimFile(this.file, this.start, this.end!).subscribe({
-        next: (res) => {
-          this.trimmedVideo = res.data.movement;
-          this.points = res.data.points;
-          this.myStepper?.next();
-          this.loading = false;
-        },
-        error: (err) => {
-          // TODO
-          this.loading = false;
-          console.log(err);
-          this._snackBar.open(err.error.message);
-        },
-      });
+      this.fileService
+        .trimFile(this.file, this.start, this.end!, this.data.exerciseType)
+        .subscribe({
+          next: (res) => {
+            this.trimmedVideo = res.data.movement;
+            this.points = res.data.points;
+            this.myStepper?.next();
+            this.loading = false;
+          },
+          error: (err) => {
+            // TODO
+            this.loading = false;
+            console.log(err);
+            this._snackBar.open(err.error.message);
+          },
+        });
     }
   }
 

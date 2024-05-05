@@ -100,7 +100,7 @@ import { ImageViewerComponent } from './common/image-viewer/image-viewer.compone
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 4000 } },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 7000 } },
   ],
   bootstrap: [AppComponent],
 })

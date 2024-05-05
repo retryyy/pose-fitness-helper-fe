@@ -18,7 +18,7 @@ export class ConfigService {
     });
   }
 
-  loadExercises(): Observable<HttpResponse> {
+  private loadExercises(): Observable<HttpResponse> {
     return this.http.get<HttpResponse>(
       `${environment.server}/config/posetypes`
     );
