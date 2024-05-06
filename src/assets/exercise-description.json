@@ -104,5 +104,58 @@
       "Hip",
       "Leg"
     ]
+  },
+  "TRICEPS_PUSHDOWN": {
+    "name": "Triceps pushdown",
+    "description": "The triceps push-down is a popular strength training exercise that targets the triceps muscles, which are located on the back of your upper arms. It’s a fundamental exercise for building triceps strength and definition and is commonly performed using a cable machine in most gyms.",
+    "instructions": [
+      "Start by setting up the cable machine with a high pulley attachment and selecting an appropriate weight.",
+      "Stand facing the cable machine with your feet shoulder-width apart and a slight bend in your knees for stability.",
+      "Grab the rope or bar attachment with an overhand grip (palms facing down) and your hands about shoulder-width apart. Keep your elbows close to your sides throughout the exercise.",
+      "Position your elbows at about 90 degrees, with your forearms parallel to the ground and your upper arms close to your torso.",
+      "Engage your core muscles to maintain stability and a neutral spine.",
+      "Keeping your upper arms stationary, exhale as you extend your elbows and push the rope or bar attachment downward until your arms are fully extended.",
+      "Hold the contracted position for a brief moment, focusing on squeezing your triceps muscles.",
+      "Inhale as you slowly return to the starting position by bending your elbows and allowing the rope or bar attachment to rise back up under control.",
+      "Repeat for the desired number of repetitions."
+    ],
+    "benefits": [
+      "Triceps muscle development: Triceps pushdowns effectively target and isolate the triceps muscles, helping to increase their size, strength, and definition. By regularly performing this exercise, you can achieve more sculpted and toned arms.",
+      "Improved pushing strength: Strong triceps are essential for various pushing movements, such as bench presses, overhead presses, and push-ups. Triceps pushdowns help strengthen the triceps, which can lead to improved performance in these exercises and other upper body movements.",
+      "Balanced arm development: Many people tend to focus more on biceps training and neglect triceps training, leading to muscle imbalances in the arms. Triceps pushdowns help address this imbalance by specifically targeting the triceps muscles, promoting balanced arm development and reducing the risk of injury.",
+      "Joint stability and health: Triceps pushdowns involve controlled movement at the elbow joint, which helps improve joint stability and mobility. Strengthening the muscles around the elbow joint can reduce the risk of overuse injuries and joint pain.",
+      "Time-efficient exercise: Triceps pushdowns are a compound exercise that targets multiple muscle groups simultaneously. By efficiently targeting the triceps, you can maximize your workout time and train multiple muscle groups in a single exercise.",
+      "Versatility: Triceps pushdowns can be performed using various equipment, including cable machines, resistance bands, or even dumbbells. This exercise allows for different grip variations, hand positions, and attachment options, allowing you to target the triceps from different angles and stimulate muscle growth effectively.",
+      "Suitable for all fitness levels: Triceps pushdowns can be easily modified to suit different fitness levels and abilities. You can adjust the weight, resistance level, or equipment used to match your strength and skill level, making it accessible to beginners and advanced lifters alike.",
+      "Enhances muscle definition: Strengthening the triceps muscles with exercises like triceps pushdowns can help enhance muscle definition and create a more toned appearance in the arms. This can be particularly beneficial for individuals looking to improve their overall physique or achieve a more sculpted look."
+    ],
+    "primaryMuscles": [
+      "Triceps"
+    ]
+  },
+  "DUMBBELL_LATERAL_RAISE": {
+    "name": "Dumbbell lateral raise",
+    "description": "The dumbbell lateral raise is an exercise that primarily targets the lateral deltoids, the muscles on the sides of the shoulders. It is an effective isolation exercise for developing shoulder strength, stability, and aesthetics.",
+    "instructions": [
+      "Stand upright with a dumbbell in each hand, arms hanging down by your sides, and palms facing inward (towards your body). Ensure your feet are shoulder-width apart for stability.",
+      "Engage your core muscles to maintain a neutral spine and avoid arching your back.",
+      "With a slight bend in your elbows, exhale and lift the dumbbells out to your sides until your arms are parallel to the ground or slightly below. Keep your elbows slightly bent throughout the movement to reduce stress on the elbow joints.",
+      "Focus on leading the movement with your elbows and shoulders, rather than your hands, to ensure proper activation of the lateral deltoids.",
+      "Hold the top position for a brief moment, squeezing your shoulder muscles to maximize contraction.",
+      "Inhale as you slowly lower the dumbbells back down to the starting position in a controlled manner.",
+      "Repeat the movement for the desired number of repetitions, maintaining control and focusing on quality over quantity."
+    ],
+    "benefits": [
+      "Shoulder muscle development: Dumbbell lateral raises specifically target the lateral deltoids, helping to develop and strengthen these muscles. By increasing the size and strength of the lateral deltoids, you can achieve broader, more defined shoulders, which can improve overall upper body aesthetics.",
+      "Improved shoulder stability: Dumbbell lateral raises engage the stabilizer muscles around the shoulder joint, helping to improve shoulder stability and reduce the risk of injury during other exercises and daily activities. Strong lateral deltoids contribute to overall shoulder joint health and function.",
+      "Enhanced shoulder function: Strong lateral deltoids are essential for various shoulder movements, including raising the arms to the sides and overhead. By strengthening the lateral deltoids through dumbbell lateral raises, you can improve your ability to perform these movements with control and stability.",
+      "Balanced shoulder development: While many upper body exercises primarily target the front deltoids (such as bench presses and push-ups), dumbbell lateral raises specifically target the lateral deltoids, helping to balance out shoulder development. This can reduce the risk of muscle imbalances and improve overall shoulder strength and function.",
+      "Improved posture: Strong lateral deltoids contribute to good posture by helping to stabilize the shoulders and upper back. By strengthening these muscles, you can improve shoulder alignment and reduce the risk of rounded shoulders or forward head posture.",
+      "Functional benefits: Dumbbell lateral raises mimic movements commonly used in daily activities, such as lifting objects to the sides or reaching overhead. By strengthening the muscles involved in these movements, you can improve your functional fitness and make daily tasks easier and more efficient.",
+      "Versatility: Dumbbell lateral raises can be easily modified to suit different fitness levels and goals. You can adjust the weight of the dumbbells, vary the number of repetitions and sets, or change the tempo of the exercise to increase or decrease intensity as needed."
+    ],
+    "primaryMuscles": [
+      "Shoulders"
+    ]
   }
 }

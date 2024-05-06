@@ -69,7 +69,7 @@ export class UploadComponent implements OnInit {
       }
     } else {
       this._snackBar.open(
-        'Maximum a 30MB MP4 video is accepted to be uploaded!'
+        'Maximum a 40MB MP4 video is accepted to be uploaded!'
       );
     }
   }
@@ -78,7 +78,7 @@ export class UploadComponent implements OnInit {
     if (this.file) {
       this.loading = true;
       this.fileService
-        .trimFile(this.file, this.start, this.end!, this.data.exerciseType)
+        .trimFile(this.file, this.start, this.end!, this.data?.exerciseType)
         .subscribe({
           next: (res) => {
             this.trimmedVideo = res.data.movement;
