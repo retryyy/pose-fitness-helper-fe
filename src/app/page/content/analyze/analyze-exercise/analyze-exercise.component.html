@@ -39,7 +39,7 @@
           </div>
         </div>
       </div>
-      <ng-container *ngFor="let files of exercise?.files">
+      <ng-container *ngFor="let movement of exercise?.movements">
         <div class="app-analyze-exercise-movement-container">
           <div class="app-analyze-exercise-view full-center">
             <div class="app-analyze-exercise-view-left">
@@ -48,18 +48,18 @@
                 matTooltip="Open benchmark video"
                 (click)="openBenchmarkVideo()"
               ></mat-icon>
-              <div>{{ files.view }} view</div>
+              <div>{{ movement.view }} view</div>
             </div>
             <mat-icon
               fontIcon="delete"
-              (click)="deleteExerciseFile(files.file_id)"
+              (click)="deleteExerciseFile(movement.file_id)"
               matTooltip="Delete video"
             ></mat-icon>
           </div>
           <div class="app-analyze-exercise-row">
             <div class="app-analyze-exercise-left">
               <img
-                src="data:image/gif;base64,{{ files.file }}"
+                src="data:image/gif;base64,{{ movement.file }}"
                 class="app-analyze-movement-frame"
               />
             </div>
@@ -68,17 +68,19 @@
                 matTooltip="Based on aggregated joint distance from a baseline movement"
                 class="app-analyze-exercise-score-container full-center"
                 [ngClass]="{
-                  'color-green': files.analyze.score >= 85,
+                  'color-green': movement.analysis.score >= 85,
                   'color-yellow':
-                    files.analyze.score < 85 && files.analyze.score >= 75,
+                    movement.analysis.score < 85 &&
+                    movement.analysis.score >= 75,
                   'color-orange':
-                    files.analyze.score < 75 && files.analyze.score >= 65,
-                  'color-red': files.analyze.score < 65
+                    movement.analysis.score < 75 &&
+                    movement.analysis.score >= 65,
+                  'color-red': movement.analysis.score < 65
                 }"
               >
                 <div class="app-analyze-exercise-score-text">SCORE</div>
                 <div class="app-analyze-exercise-score">
-                  {{ files.analyze.score }}
+                  {{ movement.analysis.score }}
                 </div>
               </div>
             </div>
@@ -86,9 +88,9 @@
           <div class="app-analyze-exercise-feedback">
             <div class="app-analyze-exercise-feedback-correct">
               <span class="app-analyze-exercise-feedback-title">CORRECT</span>
-              <div *ngIf="!files.analyze.correct.length">-</div>
+              <div *ngIf="!movement.analysis.correct.length">-</div>
               <div
-                *ngFor="let correct of files.analyze.correct"
+                *ngFor="let correct of movement.analysis.correct"
                 class="app-analyze-exercise-feedback-line"
               >
                 <mat-icon>done</mat-icon>
@@ -99,9 +101,9 @@
               <span class="app-analyze-exercise-feedback-title">
                 CHANGE OR ATTENTION IS NEEDED
               </span>
-              <div *ngIf="!files.analyze.incorrect.length">-</div>
+              <div *ngIf="!movement.analysis.incorrect.length">-</div>
               <div
-                *ngFor="let incorrect of files.analyze.incorrect"
+                *ngFor="let incorrect of movement.analysis.incorrect"
                 class="app-analyze-exercise-feedback-line"
               >
                 <mat-icon>clear</mat-icon>

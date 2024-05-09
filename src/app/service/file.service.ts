@@ -55,16 +55,16 @@ export class FileService {
     );
   }
 
-  deleteExerciseFile(
+  deleteExerciseMovement(
     exerciseId: string,
     fileId: string
   ): Observable<HttpResponse> {
     return this.http.delete<HttpResponse>(
-      `${environment.server}/exercises/${exerciseId}/files/${fileId}`
+      `${environment.server}/exercises/${exerciseId}/movements/${fileId}`
     );
   }
 
-  addExerciseFile(
+  addExerciseMovement(
     exerciseId: string,
     file: File,
     body: object
@@ -74,7 +74,7 @@ export class FileService {
     formData.append('body', JSON.stringify(body));
 
     return this.http.post<HttpResponse>(
-      `${environment.server}/exercises/${exerciseId}/files`,
+      `${environment.server}/exercises/${exerciseId}/movements`,
       formData
     );
   }

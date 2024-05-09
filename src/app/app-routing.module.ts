@@ -30,11 +30,11 @@ const routes: Routes = [
       },
       { path: 'upload', component: UploadExercisesComponent },
       {
-        path: 'analyze',
+        path: 'analysis',
         component: AnalyzeComponent,
       },
       {
-        path: 'analyze/:id',
+        path: 'analysis/:id',
         component: AnalyzeExerciseComponent,
       },
       { path: '*', component: HomeComponent },

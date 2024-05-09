@@ -120,7 +120,7 @@ export class UploadExercisesComponent {
               'Open'
             );
             ref.onAction().subscribe(() => {
-              window.open(`/analyze/${body.data}`, '_blank');
+              window.open(`/analysis/${body.data}`, '_blank');
             });
             this.thumbnailIndex = 0;
             this.uploads = [];

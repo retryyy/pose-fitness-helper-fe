@@ -40,7 +40,7 @@ export class AnalyzeExerciseComponent implements OnInit {
   }
 
   navigateBack(): void {
-    this.router.navigateByUrl('/analyze', {
+    this.router.navigateByUrl('/analysis', {
       state: { exerciseType: this.exercise?.type },
     });
   }
@@ -56,7 +56,7 @@ export class AnalyzeExerciseComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.fileService
-          .deleteExerciseFile(this.exerciseId!, fileId)
+          .deleteExerciseMovement(this.exerciseId!, fileId)
           .subscribe(() => this.loadExercise());
       }
     });
@@ -75,7 +75,7 @@ export class AnalyzeExerciseComponent implements OnInit {
           type: 'application/gif',
         });
         this.fileService
-          .addExerciseFile(this.exerciseId!, file, {
+          .addExerciseMovement(this.exerciseId!, file, {
             points: result.points,
             view: result.view,
           })

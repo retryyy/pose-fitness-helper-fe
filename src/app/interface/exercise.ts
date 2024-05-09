@@ -6,20 +6,20 @@ export interface ExerciseThumbnail {
   type: string;
 }
 
-export interface ExerciseAnalyze {
+export interface ExerciseAnalysis {
   score: number;
   correct: string[];
   incorrect: string[];
 }
-export interface ExerciseFile {
+export interface ExerciseMovement {
   file_id: string;
   file: string;
   view: string;
-  analyze: ExerciseAnalyze;
+  analysis: ExerciseAnalysis;
 }
 export interface Exercise {
   name: string;
   type: string;
   created: Date;
-  files: ExerciseFile[];
+  movements: ExerciseMovement[];
 }

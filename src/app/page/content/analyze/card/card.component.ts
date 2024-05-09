@@ -20,6 +20,6 @@ export class CardComponent {
   }
 
   openFile(): void {
-    this.router.navigateByUrl(`/analyze/${this.exercise?.id}`);
+    this.router.navigateByUrl(`/analysis/${this.exercise?.id}`);
   }
 }

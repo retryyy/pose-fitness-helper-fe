@@ -32,11 +32,11 @@ export class SidebarComponent {
     },
     {
       title: 'Analyze data',
-      navigate: '/analyze',
+      navigate: '/analysis',
       icon: 'query_stats',
     },
     {
-      title: 'Load joint points',
+      title: 'Extract joint points',
       click: () => {
         const dialogRef = this.dialog.open(UploadComponent, {
           disableClose: true,
