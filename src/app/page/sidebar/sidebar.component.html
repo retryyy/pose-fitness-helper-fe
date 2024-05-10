@@ -1,6 +1,7 @@
 <div
   *ngFor="let elem of sidebar"
   class="sidebar-elem"
+  [class.highlight]="elem.navigate | highlightSidebarElement : router.url"
   (click)="elem.click ? elem.click() : navigate(elem.navigate)"
 >
   <mat-icon>{{ elem.icon }}</mat-icon> {{ elem.title }}

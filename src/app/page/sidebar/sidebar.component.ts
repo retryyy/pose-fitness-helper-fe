@@ -52,7 +52,7 @@ export class SidebarComponent {
     },
   ];
 
-  constructor(private router: Router, public dialog: MatDialog) {}
+  constructor(protected router: Router, public dialog: MatDialog) {}
 
   navigate(url: string | undefined): void {
     if (url) {

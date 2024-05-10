@@ -48,6 +48,7 @@ import { ChooseTypeComponent } from './page/content/analyze/choose-type/choose-t
 import { ExerciseTooltipComponent } from './page/common/exercise-tooltip/exercise-tooltip.component';
 import { ExerciseDescriptionComponent } from './page/content/home/exercise-description/exercise-description.component';
 import { ImageViewerComponent } from './common/image-viewer/image-viewer.component';
+import { HighlightSidebarElementPipe } from './pipe/highlight-sidebar-element.pipe';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { ImageViewerComponent } from './common/image-viewer/image-viewer.compone
     ExerciseTooltipComponent,
     ExerciseDescriptionComponent,
     ImageViewerComponent,
+    HighlightSidebarElementPipe,
   ],
   imports: [
     BrowserModule,
