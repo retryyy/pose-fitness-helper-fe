@@ -26,12 +26,12 @@ export class SidebarComponent {
       icon: 'home',
     },
     {
-      title: 'Upload data',
+      title: 'Upload exercise',
       navigate: '/upload',
       icon: 'upload_file',
     },
     {
-      title: 'Analyze data',
+      title: 'Analyze exercise',
       navigate: '/analysis',
       icon: 'query_stats',
     },

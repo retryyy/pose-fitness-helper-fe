@@ -5,7 +5,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class HighlightSidebarElementPipe implements PipeTransform {
   transform(value: string | undefined, route: string): boolean {
-    console.log(value);
     return value
       ? value.length === 1
         ? value === route
