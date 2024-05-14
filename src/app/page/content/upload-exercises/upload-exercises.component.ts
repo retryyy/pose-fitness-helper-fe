@@ -7,14 +7,15 @@ import { FileService } from 'src/app/service/file.service';
 import { dataURItoBlob } from 'src/app/util/string-to-file';
 import { ConfigService } from 'src/app/service/config.service';
 import { PopupComponent } from 'src/app/common/popup/popup.component';
-import { pairwise } from 'rxjs';
+import { Observable, map, of, pairwise, switchMap } from 'rxjs';
+import { CanComponentDeactivate } from './leave-page.guard';
 
 @Component({
   selector: 'app-upload-exercises',
   templateUrl: './upload-exercises.component.html',
   styleUrls: ['./upload-exercises.component.scss'],
 })
-export class UploadExercisesComponent {
+export class UploadExercisesComponent implements CanComponentDeactivate {
   exerciseForm: FormGroup;
 
   uploads: VideoUpload[] = [];
@@ -57,6 +58,26 @@ export class UploadExercisesComponent {
           });
         }
       });
+  }
+
+  canDeactivate(): Observable<boolean> {
+    return of(this.exerciseForm.touched).pipe(
+      switchMap((result) => {
+        if (result) {
+          return this.dialog
+            .open(PopupComponent, {
+              data: {
+                title: 'Already started the process',
+                message: 'Do you really want to navigate from the page?',
+              },
+            })
+            .afterClosed()
+            .pipe(map((result) => !!result));
+        } else {
+          return of(true);
+        }
+      })
+    );
   }
 
   protected openUpload(): void {
