@@ -1,4 +1,28 @@
 {
+  "DUMBBELL_SQUAT": {
+    "name": "Dumbbell squat",
+    "description": "Dumbbell squats are a fundamental strength training exercise that can help you build powerful lower body muscles and improve overall fitness. They are a versatile alternative to barbell squats, offering the advantage of working each leg independently and allowing for a greater range of motion.",
+    "instructions": [
+      "Stand upright with your feet shoulder-width apart, holding a dumbbell in each hand by your sides. You can either hold the dumbbells down by your sides or rest them on your shoulders, depending on your preference and comfort level.",
+      "Engage your core muscles to maintain a neutral spine, and keep your chest up and your shoulders back throughout the exercise.",
+      "Lower your body by bending at the hips and knees, as if you're sitting back into an imaginary chair. Keep your weight centered on your heels, and lower your body until your thighs are parallel to the ground or slightly below. Make sure your knees are in line with your toes and don't cave inward.",
+      "Pause briefly at the bottom of the squat, then push through your heels and extend your hips and knees to return to the starting position. Exhale as you push up.",
+      "Repeat the movement for the desired number of repetitions."
+    ],
+    "benefits": [
+      "Lower body muscle development: Dumbbell squats primarily target the quadriceps, hamstrings, glutes, and calves. By performing dumbbell squats regularly, you can strengthen and develop these major muscle groups, leading to improved muscle tone, size, and strength in the lower body.",
+      "Functional movement pattern: Squatting is a fundamental human movement pattern that mimics activities of daily living, such as sitting down, standing up, and lifting objects from the ground. By performing dumbbell squats, you can improve your ability to perform these functional movements with greater ease and efficiency.",
+      "Core engagement: Dumbbell squats require stabilization of the core muscles to maintain proper posture and spinal alignment throughout the movement. This helps strengthen the muscles of the core, including the abdominals, obliques, and lower back, which is essential for overall stability and injury prevention.",
+      "Joint stability and mobility: Dumbbell squats engage the muscles around the hips, knees, and ankles, helping to improve joint stability and mobility. By strengthening these muscles and promoting proper movement mechanics, dumbbell squats can reduce the risk of injury and improve overall joint health.",
+      "Variety and versatility: Dumbbell squats offer a versatile alternative to traditional barbell squats, allowing you to perform the exercise with minimal equipment and in various settings. You can adjust the weight of the dumbbells, modify your stance, or incorporate different squat variations to target different muscle groups and add variety to your workouts.",
+      "Improved balance and coordination: Performing dumbbell squats requires balance and coordination, as you stabilize your body while lowering and raising the weights. Over time, practicing dumbbell squats can improve your balance and coordination, enhancing overall athletic performance and reducing the risk of falls and injuries.",
+      "Convenience: Dumbbell squats can be performed virtually anywhere, making them a convenient option for those who prefer to work out at home or on the go. All you need is a pair of dumbbells and enough space to perform the exercise safely."
+    ],
+    "primaryMuscles": [
+      "Hip",
+      "Leg"
+    ]
+  },
   "BARBELL_BACK_SQUAT": {
     "name": "Barbell back squat",
     "description": "The barbell back squat is a compound exercise that targets multiple muscle groups in the lower body, particularly the quadriceps, hamstrings, glutes, and calves. It also engages the core muscles and requires stability and control throughout the movement.",
@@ -27,9 +51,9 @@
       "Leg"
     ]
   },
-  "DUMBBELL_SHOULDER_PRESS": {
-    "name": "Dumbbell shoulder press",
-    "description": "Dumbbell shoulder press is a weightlifting exercise that primarily targets the shoulder muscles. It is also known as dumbbell overhead press or dumbbell military press.",
+  "SHOULDER_PRESS": {
+    "name": "Shoulder press",
+    "description": "Shoulder press is a weightlifting exercise that primarily targets the shoulder muscles. It is also known as dumbbell overhead press or dumbbell military press.",
     "instructions": [
       "Start by sitting on a bench with back support, or you can also do it while standing.",
       "Hold a dumbbell in each hand at shoulder level, palms facing forward. Your elbows should be bent, and your upper arms should be parallel to the ground.",

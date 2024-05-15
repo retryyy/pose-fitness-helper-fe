@@ -88,9 +88,9 @@ export class AnalyzeExerciseComponent implements OnInit {
     window.open(`/exercise/${this.exercise?.type}`, '_blank');
   }
 
-  protected openBenchmarkVideo(): void {
+  protected openBenchmarkVideo(view: string): void {
     this.fileService
-      .getBenchmarkVideo(this.exercise!.type, 'side')
+      .getBenchmarkVideo(this.exercise!.type, view)
       .subscribe((res) => {
         this.dialog.open(ImageViewerComponent, {
           disableClose: true,
